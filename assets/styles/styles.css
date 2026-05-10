@@ -1,0 +1,17 @@
+body{
+    font-family: 'Segoe UI';
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: white;
+    color:white;
+}
+
+.navbar{
+    display: flex;
+    text-align: center;
+    justify-content: space-between;
+    padding: 15px 30px;
+    background: #131B4F;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.06);
+}
