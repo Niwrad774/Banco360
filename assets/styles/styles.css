@@ -1,3 +1,9 @@
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 80px; 
+    box-sizing: border-box;
+}
+
 body{
     font-family: 'Segoe UI';
     line-height: 1.6;
@@ -12,6 +18,94 @@ body{
     text-align: center;
     justify-content: space-between;
     padding: 15px 30px;
-    background: #131B4F;
+    background: #2837A1;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.06);
+}
+
+.navbar ul{
+    list-style-type: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 15px 0;
+}
+
+.navbar li {
+    margin: 0 25px;
+}
+
+.navbar li a{
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 600;
+    color: white;
+    transform: 0.3s ease;
+}
+
+.navbar li a:hover{
+    color: #FFD700;
+}
+
+.Inicio-underline{
+    width: 47px;
+    height: 2px;
+    background-color: #aab2fa;;
+}
+
+li:hover .Inicio-underline{
+   background-color: #FFD700;
+}
+
+.navbar img{
+    border-radius: 40px;
+}
+
+
+
+
+
+
+
+/* Seccion Hero */
+.hero {
+    background-color: #aab2fa; /* El verde característico */
+    color: white;
+    display: flex;
+    align-items: center;
+    padding: 60px 10%;
+    min-height: 400px;
+    /*
+    position: relative;
+    overflow: hidden;
+    */
+}
+
+.hero-text {
+    flex: 1;
+    /*z-index: 2;*/
+}
+
+.hero-text h1 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+    color: #2837A1;
+}
+
+.hero-text p {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+    padding-left: 5px;
+    color: #2837A1;
+}
+
+.hero-image {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.hero-image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 70px;
 }
