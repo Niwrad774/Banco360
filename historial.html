@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Banca 360 - Historial</title>
+    <link rel="stylesheet" href="./assets/styles/stylesDashboard.css">
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+</head>
+<body>
+    <header class="navbar">
+        <div class="nav-left">
+            <div class="logo-area">
+                <img src="./assets/images/logoDeBanco.png" alt="Logo" width="35">
+                <span>Banca 360</span>
+            </div>
+        </div>
+        <nav class="nav-right">
+            <a href="dashboard.html" class="btn-nav">Inicio</a>
+            <a href="historial.html" class="btn-nav active">Movimientos</a>
+            <a href="index.html" class="btn-nav">Salir</a>
+        </nav>
+    </header>
+
+    <main class="container-history" style="max-width: 900px; margin: 40px auto; padding: 0 20px;">
+        <section class="card">
+            <div class="filter-container">
+                <h2 style="margin-right: auto;">Historial Completo</h2>
+                <div class="filter-bar-horizontal">
+                    <button class="opt-filter active" onclick="filtrar('todos', this)">Todos</button>
+                    <button class="opt-filter" onclick="filtrar('entrada', this)">Entradas</button>
+                    <button class="opt-filter" onclick="filtrar('salida', this)">Salidas</button>
+                </div>
+            </div>
+            
+            <table class="data-table">
+                <tbody id="tabla-historial">
+                    </tbody>
+            </table>
+        </section>
+    </main>
+
+    <div id="modal-comprobante" class="modal-overlay">
+        <div class="modal-card">
+            <button class="btn-close-modal" onclick="cerrarModal()">&times;</button>
+            <div style="color: var(--success-green); font-size: 3.5rem; margin-bottom: 10px;">
+                <ion-icon name="checkmark-circle-outline"></ion-icon>
+            </div>
+            <h3>Comprobante de Operación</h3>
+            <div style="text-align: left; font-size: 0.95rem; border-top: 1px solid #eee; padding-top: 20px; margin-top: 20px;">
+                <p style="margin-bottom: 10px;"><strong>Referencia:</strong> <span id="comp-ref"></span></p>
+                <p style="margin-bottom: 10px;"><strong>Fecha:</strong> <span id="comp-fecha"></span></p>
+                <p style="margin-bottom: 10px;"><strong>Concepto:</strong> <span id="comp-concepto"></span></p>
+                <p><strong>Monto:</strong> <span id="comp-monto" style="font-weight: 800;"></span></p>
+            </div>
+            <button class="btn-download-pdf">Descargar PDF</button>
+        </div>
+    </div>
+
+    <script src="./assets/scripts/dashboard.js"></script>
+</body>
+</html>
