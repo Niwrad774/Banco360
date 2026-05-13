@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Banca 360 - Dashboard</title>
+    <link rel="stylesheet" href="./assets/styles/stylesDashboard.css">
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+</head>
+<body>
+
+    <header class="navbar-dashboard">
+        <div class="logo-area">
+            <img src="./assets/images/logoDeBanco.png" alt="Logo" width="40">
+            <span>Banca 360</span>
+        </div>
+        <nav class="nav-menu">
+            <button id="btn-tema" class="btn-util">🌓 Modo</button>
+            <a href="perfil.html" class="nav-item">Perfil</a>
+            <a href="index.html" class="nav-item logout">Cerrar Sesión</a>
+        </nav>
+    </header>
+
+    <main class="main-content">
+        <section class="card balance-card">
+            <div class="balance-header">
+                <h3>Saldo Disponible</h3>
+                <button id="btn-ojo" class="btn-invisible">
+                    <ion-icon name="eye-outline" id="icono-ojo"></ion-icon>
+                </button>
+            </div>
+            <h1 id="texto-saldo">$ 12.850,00</h1>
+            <p class="account-number">Cuenta Corriente: **** 1234</p>
+        </section>
+
+        <section class="card transactions-card">
+            <div class="card-header">
+                <h3>Últimas 3 Transacciones</h3>
+                <a href="historial.html" class="link-ver-mas">Ver historial completo</a>
+            </div>
+            
+            <table class="tabla-bancaria">
+                <thead>
+                    <tr>
+                        <th>Fecha</th>
+                        <th>Descripción</th>
+                        <th>Monto</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>12/05/2026</td>
+                        <td>Pago Móvil - Farmacia</td>
+                        <td class="monto-salida">-$ 25.00</td>
+                    </tr>
+                    <tr>
+                        <td>11/05/2026</td>
+                        <td>Transferencia Recibida</td>
+                        <td class="monto-entrada">+$ 150.00</td>
+                    </tr>
+                    <tr>
+                        <td>10/05/2026</td>
+                        <td>Depósito en Efectivo</td>
+                        <td class="monto-entrada">+$ 40.00</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section class="quick-actions">
+            <button onclick="location.href='transferencias.html'">Transferir</button>
+            <button onclick="location.href='pagomovil.html'">Pago Móvil</button>
+            <button onclick="location.href='depositos.html'">Depositar</button>
+        </section>
+    </main>
+
+    <script src="./assets/scripts/dashboard.js"></script>
+</body>
+</html>

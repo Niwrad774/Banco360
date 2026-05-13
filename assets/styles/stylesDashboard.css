@@ -1,0 +1,119 @@
+/* VARIABLES DE DISEÑO UCAB */
+:root {
+    --azul-primario: #2837A1;
+    --lila-fondo: #aab2fa;
+    --blanco-card: #ffffff;
+    --texto-oscuro: #1a1a1a;
+    --exito: #2ecc71;
+    --error: #e74c3c;
+}
+
+/* CAMBIO A MODO OSCURO (REQUERIMIENTO 4.1) */
+[data-theme="dark"] {
+    --azul-primario: #1a256b;
+    --lila-fondo: #121212;
+    --blanco-card: #1e1e1e;
+    --texto-oscuro: #f0f0f0;
+}
+
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background-color: var(--lila-fondo);
+    color: var(--texto-oscuro);
+    transition: all 0.3s ease;
+}
+
+/* NAVBAR FLEXBOX */
+.navbar-dashboard {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 5%;
+    background-color: var(--azul-primario);
+    color: white;
+}
+
+.nav-menu {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+.nav-item {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+/* CONTENEDOR PRINCIPAL */
+.main-content {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+/* TARJETAS (BOX MODEL - UNIDAD 3) */
+.card {
+    background-color: var(--blanco-card);
+    border-radius: 15px;
+    padding: 25px;
+    margin-bottom: 25px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.balance-card {
+    background: linear-gradient(135deg, var(--azul-primario), #4b5ccf);
+    color: white;
+    text-align: center;
+}
+
+.balance-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+#texto-saldo {
+    font-size: 2.5rem;
+    margin: 15px 0;
+}
+
+/* TABLA ESTILIZADA (UNIDAD 2) */
+.tabla-bancaria {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.tabla-bancaria th {
+    text-align: left;
+    color: var(--azul-primario);
+    border-bottom: 2px solid var(--lila-fondo);
+    padding: 10px;
+}
+
+.tabla-bancaria td {
+    padding: 15px 10px;
+    border-bottom: 1px solid #eee;
+}
+
+.monto-entrada { color: var(--exito); font-weight: bold; }
+.monto-salida { color: var(--error); font-weight: bold; }
+
+/* BOTONES */
+.btn-util, .quick-actions button {
+    padding: 10px 20px;
+    border-radius: 20px;
+    border: none;
+    cursor: pointer;
+    background-color: var(--azul-primario);
+    color: white;
+    transition: 0.2s;
+}
+
+.quick-actions {
+    display: flex;
+    justify-content: space-around;
+}
