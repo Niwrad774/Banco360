@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Banco 360 en linea</title>
+    <link rel="stylesheet" href="assets/styles/stylesRegister.css">
+    <style>
+        select {
+            width: 100%;
+            background: transparent;
+            border: none;
+            outline: none;
+            color: #fff;
+            font-size: 1em;
+            padding: 10px 0;
+            border-bottom: 2px solid #fff;
+            margin-bottom: 20px;
+        }
+        option { background: #2837A1; color: #fff; }
+    </style>
+</head>
+<body>
+    <section>
+        <div class="wrapper" style="height: 550px;">
+            <div class="form-box">
+                <h2>Seguridad</h2>
+                <p style="color: white; text-align: center; margin-bottom: 20px;">Configura tus preguntas de recuperación</p>
+                
+                <form action="index.html">
+                    <label style="color: white;">Pregunta 1:</label>
+                    <select required>
+                        <option value="">Selecciona una pregunta</option>
+                        <option>¿Nombre de tu primera mascota?</option>
+                        <option>¿Ciudad donde naciste?</option>
+                        <option>¿Nombre de tu escuela primaria?</option>
+                    </select>
+                    <div class="input-box">
+                        <input type="text" required>
+                        <label>Respuesta 1</label>
+                    </div>
+
+                    <label style="color: white;">Pregunta 2:</label>
+                    <select required>
+                        <option value="">Selecciona una pregunta</option>
+                        <option>¿Marca de tu primer carro?</option>
+                        <option>¿Nombre de tu abuelo materno?</option>
+                        <option>¿Tu comida favorita de niño?</option>
+                    </select>
+                    <div class="input-box">
+                        <input type="text" required>
+                        <label>Respuesta 2</label>
+                    </div>
+
+                    <button type="submit" class="botonRegistrarse" style="display:block; width:100%; border:none; cursor:pointer;">Finalizar Registro</button>
+                </form>
+            </div>
+        </div>
+    </section>
+</body>
+</html>

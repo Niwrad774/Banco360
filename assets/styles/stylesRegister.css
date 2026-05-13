@@ -1,4 +1,3 @@
-/* 1. Reset y Centrado */
 * {
     margin: 0;
     padding: 0;
@@ -7,18 +6,18 @@
 }
 
 body {
-    display: flex; /* Corregido: era flex, no flexbox */
+    display: flex;       
     justify-content: center;
     align-items: center;
     min-height: 100vh;
     background-color: #aab2fa;
 }
 
-/* 2. El Contenedor (Caja Azul) */
+
 .wrapper {
     position: relative;
     width: 400px;
-    height: 650px; /* Aumentamos la altura para que quepan los 5 campos */
+    height: 650px; 
     background: #2837A1;
     border-radius: 20px;
     display: flex;
@@ -27,13 +26,11 @@ body {
     box-shadow: 0 0 15px rgba(0,0,0,0.2);
 }
 
-/* 3. La Caja del Formulario */
 .form-box {
     width: 100%;
     padding: 40px;
 }
 
-/* IMPORTANTE: Sin JS, eliminamos los translateX para que el texto NO se esconda */
 .form-box.register {
     position: relative; 
     transform: translateX(0); 
@@ -45,7 +42,6 @@ h2 {
     text-align: center;
 }
 
-/* 4. Estilos de los Inputs (Los que faltaban) */
 .input-box {
     position: relative;
     width: 100%;
@@ -65,7 +61,6 @@ h2 {
     transition: .5s;
 }
 
-/* Efecto de subir el label cuando escribes */
 .input-box input:focus~label,
 .input-box input:valid~label {
     top: -5px;
@@ -90,8 +85,11 @@ h2 {
     line-height: 57px;
 }
 
-/* 5. Botón y Enlace */
-button.btn {
+
+.botonRegistrarse {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     width: 100%;
     height: 45px;
     background: #fff;

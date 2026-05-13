@@ -5,46 +5,57 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Banco360 en linea</title>
         <link rel="stylesheet" href="assets/styles/stylesLogin.css">
+        <link rel="stylesheet" href="assets/styles/spinner.css">
     </head>
 
-    <body>
-        
-        <section class="cajaDeLogin">
-            <div class="contenedor-vertical">
-                <div class="login-box">
-                    <form action="">
-                        <h2>Iniciar sesión</h2>
-                        <div class="input-box">
-                            <span class="icon"><ion-icon name="mail-outline"></ion-icon></span>
-                            <input type="email" required>
-                            <label>Email</label>
-                        </div>
-
-                        <div class="input-box">
-                            <span class="icon"><ion-icon name="lock-closed-outline"></ion-icon></span>
-                            <input type="password" required>
-                            <label>Contraseña</label>
-                        </div>
-                        <div class="remenber-forgot">
-                            <label><input type="checkbox">Recuerdame</label>
-                            <a href="#">¿Olvidaste tu contraseña?</a>
-                        </div>
-                        <button type="submit">Iniciar sesión</button>
-                        <div class="register-link">
-                            <p>¿No tienes una cuenta? <a 
-                                href="registro.html">Registrate</a></p>
-                        </div>
-                    </form>
-                </div>
-                <div class="seccionDeCajaBotonDeRegreso">
-                    <div id="cajaDeBotonDeRegreso">
-                        <a href="index.html">
-                            <button class="botonDeRegreso">Regresar</button>
-                        </a>
+<body>
+    
+    <section class="cajaDeLogin">
+        <div class="contenedor-vertical">
+            <div class="login-box">
+                <form>
+                    <h2>Iniciar sesión</h2>
+                    <div class="input-box">
+                        <span class="icon"><ion-icon name="mail-outline"></ion-icon></span>
+                        <input type="email" required>
+                        <label>Email</label>
                     </div>
+
+                    <div class="input-box">
+                        <span class="icon">
+                            <ion-icon name="lock-closed-outline"></ion-icon>
+                        </span>
+                        <input type="password" id="passInput" required>
+                        <label>Contraseña</label>
+                        <span class="eye-icon" id="togglePass">
+                            <ion-icon name="eye-outline" id="eyeIcon"></ion-icon>
+                        </span>
+                    </div>
+                    
+                    <div class="remenber-forgot">
+                        <label><input type="checkbox">Recuerdame</label>
+                        <a href="#">¿Olvidaste tu contraseña?</a>
+                    </div>
+                    <button type="submit">
+                        Iniciar sesión
+                    </button>
+                    <div class="register-link">
+                        <p>¿No tienes una cuenta? <a 
+                            href="registro.html">Registrate</a></p>
+                    </div>
+                </form>
+            </div>
+            <div class="seccionDeCajaBotonDeRegreso">
+                <div id="cajaDeBotonDeRegreso">
+                    <a href="index.html">
+                        <button class="botonDeRegreso">Regresar</button>
+                    </a>
                 </div>
             </div>
-        </section>
-        <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
-        <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
-    </body>
+        </div>
+    </section>
+    <script src="regexInicio.js"></script>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <div class="loader" id="spinner"></div>
+</body>
