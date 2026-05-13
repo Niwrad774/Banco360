@@ -68,7 +68,7 @@ li:hover .Inicio-underline{
 
 /* Seccion Hero */
 .hero {
-    background-color: #aab2fa; /* El verde característico */
+    background-color: #aab2fa; 
     color: white;
     display: flex;
     align-items: center;

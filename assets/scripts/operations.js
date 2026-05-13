@@ -56,7 +56,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function showSuccess(message) {
-        // Simple but clean notification simulation
         const overlay = document.createElement('div');
         overlay.style.position = 'fixed';
         overlay.style.top = '0';
