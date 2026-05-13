@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Depósitos - Banca 360</title>
+    <link rel="stylesheet" href="./assets/styles/stylesOperations.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <style>
+        /* Estilos específicos de depósito movidos a stylesOperations.css */
+    </style>
+</head>
+<body>
+
+    <header class="navbar-dashboard">
+        <div class="logo-area">
+            <img src="./assets/images/logoDeBanco.png" alt="Logo" width="40">
+            <span>Banca 360</span>
+        </div>
+        <nav class="nav-menu">
+            <button id="btn-tema" class="btn-util btn-theme-toggle">🌓 Modo</button>
+            <a href="dashboard.html" class="nav-item">Dashboard</a>
+            <a href="index.html" class="nav-item logout">Cerrar Sesión</a>
+        </nav>
+    </header>
+
+    <main class="main-content">
+        <a href="dashboard.html" class="btn-back">
+            <ion-icon name="arrow-back-outline"></ion-icon> Volver al Dashboard
+        </a>
+
+        <section class="operation-card">
+            <div class="operation-header">
+                <ion-icon name="wallet-outline" style="color: #2ecc71;"></ion-icon>
+                <h2>Realizar Depósito</h2>
+                <p>Ingresa dinero a tu cuenta de forma inmediata</p>
+            </div>
+
+            <form id="form-deposito">
+                <div class="form-group">
+                    <label>Selecciona Método de Depósito</label>
+                    
+                    <div class="deposit-option active" onclick="selectOption(this)">
+                        <ion-icon name="card-outline"></ion-icon>
+                        <div>
+                            <h4>Tarjeta de Crédito / Débito</h4>
+                            <p>Acreditación inmediata</p>
+                        </div>
+                    </div>
+
+                    <div class="deposit-option" onclick="selectOption(this)">
+                        <ion-icon name="business-outline"></ion-icon>
+                        <div>
+                            <h4>Transferencia Interbancaria</h4>
+                            <p>Puede tardar hasta 24h</p>
+                        </div>
+                    </div>
+
+                    <div class="deposit-option" onclick="selectOption(this)">
+                        <ion-icon name="cash-outline"></ion-icon>
+                        <div>
+                            <h4>Depósito en Efectivo (Taquilla)</h4>
+                            <p>Genera un código de referencia</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="monto">Monto a Depositar ($)</label>
+                    <input type="number" id="monto" class="form-control" placeholder="0.00" step="0.01" min="1.00" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="cuenta-destino">Cuenta de Destino</label>
+                    <select id="cuenta-destino" class="form-control" required>
+                        <option value="corriente">Cuenta Corriente - **** 1234</option>
+                        <option value="ahorro">Cuenta de Ahorros - **** 5678</option>
+                    </select>
+                </div>
+
+                <button type="submit" class="btn-primary btn-deposit">Confirmar Depósito</button>
+            </form>
+        </section>
+    </main>
+
+    <script>
+        function selectOption(el) {
+            document.querySelectorAll('.deposit-option').forEach(opt => opt.classList.remove('active'));
+            el.classList.add('active');
+        }
+    </script>
+    <script src="./assets/scripts/operations.js"></script>
+</body>
+</html>

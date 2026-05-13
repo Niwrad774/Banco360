@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Banca 360 - Dashboard</title>
+    <link rel="stylesheet" href="./assets/styles/stylesDashboard.css">
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+</head>
+<body>
+
+    <header class="navbar">
+        <div class="nav-left">
+            <div class="menu-container">
+                <button class="btn-hamburger" id="hamburger-btn">
+                    <ion-icon name="menu-outline"></ion-icon>
+                </button>
+                <div class="dropdown-menu" id="nav-dropdown">
+                    <a href="depositos.html">Depósitos</a>
+                    <a href="pagomovil.html">Pago Móvil</a>
+                    <a href="transferencias.html">Transferencias</a>
+                </div>
+            </div>
+            <div class="logo-area">
+                <img src="./assets/images/logoDeBanco.png" alt="Logo" width="35">
+                <span>Banca 360</span>
+            </div>
+        </div>
+        <nav class="nav-right">
+            <a href="dashboard.html" class="btn-nav active">Inicio</a>
+            <a href="historial.html" class="btn-nav">Movimientos</a>
+            <a href="perfil.html" class="btn-nav">Perfil</a>
+            <a href="index.html" class="btn-nav">Salir</a>
+        </nav>
+    </header>
+
+    <main class="dashboard-grid">
+        <aside class="left-column">
+            <section class="card balance-card">
+                <div>
+                    <p style="opacity: 0.8; font-size: 0.9rem;">Saldo disponible</p>
+                    <div class="balance-row">
+                        <h1 id="texto-saldo">$ 12.850,00</h1>
+                        <button id="btn-ojo" class="btn-eye-only">
+                            <ion-icon name="eye-outline" id="icono-ojo"></ion-icon>
+                        </button>
+                    </div>
+                </div>
+                <div>
+                    <p style="font-size: 0.9rem;">Cta: **** 1234</p>
+                    <div class="tag-debito-green">DÉBITO</div>
+                </div>
+            </section>
+
+            <section class="card rates-card">
+                <h3 style="margin-bottom: 15px; color: var(--primary);">Tasas de Conversión</h3>
+                <div class="rate-item"><span>€ EUR</span> <strong>596,60352721</strong></div>
+                <div class="rate-item"><span>¥ CNY</span> <strong>74,88778620</strong></div>
+                <div class="rate-item"><span>₺ TRY</span> <strong>11,20487321</strong></div>
+                <div class="rate-item"><span>₽ RUB</span> <strong>6,89253828</strong></div>
+                <div class="rate-item"><span>$ USD</span> <strong>508,60040000</strong></div>
+                <p style="font-size: 0.7rem; color: gray; margin-top: 15px; text-align: center;">Fecha Valor: Miércoles, 13 Mayo 2026</p>
+            </section>
+        </aside>
+
+        <section class="right-column">
+            <div class="card trans-card">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
+                    <h2>Últimos Movimientos</h2>
+                    <a href="historial.html" style="text-decoration: none; color: var(--primary); font-weight: bold;">Ver todo</a>
+                </div>
+                <div class="scroll-wrapper">
+                    <table class="data-table">
+                        <tbody id="tabla-resumen">
+                            </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <button id="btn-tema" class="theme-switch-btn">
+        <ion-icon name="moon-outline"></ion-icon>
+    </button>
+
+    <div id="modal-comprobante" class="modal-overlay">
+        <div class="modal-card">
+            <button class="btn-close-modal" onclick="cerrarModal()">&times;</button>
+            <div style="color: var(--success-green); font-size: 3.5rem; margin-bottom: 10px;">
+                <ion-icon name="checkmark-circle-outline"></ion-icon>
+            </div>
+            <h3 style="margin-bottom: 20px;">Comprobante de Operación</h3>
+            <div style="text-align: left; font-size: 0.95rem; border-top: 1px solid #eee; padding-top: 20px;">
+                <p style="margin-bottom: 10px;"><strong>Referencia:</strong> <span id="comp-ref"></span></p>
+                <p style="margin-bottom: 10px;"><strong>Fecha:</strong> <span id="comp-fecha"></span></p>
+                <p style="margin-bottom: 10px;"><strong>Concepto:</strong> <span id="comp-concepto"></span></p>
+                <p><strong>Monto:</strong> <span id="comp-monto" style="font-weight: 800;"></span></p>
+            </div>
+            <button class="btn-download-pdf">Descargar PDF</button>
+        </div>
+    </div>
+
+    <script src="./assets/scripts/dashboard.js"></script>
+</body>
+</html>
