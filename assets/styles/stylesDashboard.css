@@ -4,7 +4,7 @@
     --bg-body: #f4f7fe;
     --bg-card: #ffffff;
     --text-main: #2d3436;
-    --success-green: #2ecc71; /* Verde esmeralda para el tag */
+    --success-green: #2ecc71; 
     --error-red: #d63031;
     --shadow: rgba(40, 55, 161, 0.15);
 }
@@ -28,7 +28,7 @@ body { font-family: 'Segoe UI', sans-serif; background-color: var(--bg-body); co
 
 .nav-left { display: flex; align-items: center; gap: 15px; }
 
-/* MENÚ HAMBURGUESA MEJORADO */
+/* MENU HAMBURGUESA */
 .menu-container { position: relative; }
 .btn-hamburger { 
     background: none; border: none; color: white; font-size: 2rem; cursor: pointer; display: flex;
@@ -45,7 +45,7 @@ body { font-family: 'Segoe UI', sans-serif; background-color: var(--bg-body); co
 }
 .dropdown-menu a:hover { background: var(--bg-body); }
 
-/* BOTONES DE NAVEGACIÓN DERECHA */
+/* BOTONES DE NAVEGACION DERECHA */
 .nav-right { display: flex; gap: 8px; }
 .btn-nav {
     padding: 8px 18px; border-radius: 20px; text-decoration: none;
@@ -84,7 +84,7 @@ body { font-family: 'Segoe UI', sans-serif; background-color: var(--bg-body); co
 .trans-card { height: 100%; display: flex; flex-direction: column; }
 .scroll-wrapper { overflow-y: auto; flex-grow: 1; padding-right: 5px; }
 
-/* FILAS CÁPSULA */
+/* FILAS CAPSULA */
 .data-table { width: 100%; border-collapse: separate; border-spacing: 0 10px; }
 .data-table tr { background: var(--bg-body); transition: 0.2s; cursor: pointer; }
 .data-table tr:hover { transform: scale(1.01); filter: brightness(0.95); }

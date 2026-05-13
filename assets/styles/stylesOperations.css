@@ -1,0 +1,279 @@
+/* STYLES FOR BANKING OPERATIONS */
+:root {
+    --azul-primario: #2837A1;
+    --azul-secundario: #4b5ccf;
+    --lila-fondo: #aab2fa;
+    --blanco-card: rgba(255, 255, 255, 0.9);
+    --texto-oscuro: #1a1a1a;
+    --exito: #2ecc71;
+    --error: #e74c3c;
+    --glass-bg: rgba(255, 255, 255, 0.7);
+    --glass-border: rgba(255, 255, 255, 0.3);
+}
+
+[data-theme="dark"] {
+    --azul-primario: #2f54eb;
+    --lila-fondo: #0f172a;
+    --blanco-card: rgba(30, 41, 59, 0.9);
+    --texto-oscuro: #f8fafc;
+    --texto-secundario: #94a3b8;
+    --glass-bg: rgba(15, 23, 42, 0.7);
+    --glass-border: rgba(255, 255, 255, 0.1);
+}
+
+body {
+    margin: 0;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    background: linear-gradient(135deg, var(--lila-fondo) 0%, #c2c9fb 100%);
+    min-height: 100vh;
+    color: var(--texto-oscuro);
+    line-height: 1.6;
+    transition: all 0.3s ease;
+}
+
+h1,
+h2,
+h3,
+h4 {
+    font-family: 'Outfit', sans-serif;
+    font-weight: 600;
+}
+
+.navbar-dashboard {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 5%;
+    background-color: var(--azul-primario);
+    color: white;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.logo-area {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+.nav-menu {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+.nav-item {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    transition: opacity 0.2s;
+}
+
+.nav-item:hover {
+    opacity: 0.8;
+}
+
+.btn-theme-toggle {
+    padding: 5px 15px;
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    cursor: pointer;
+    font-weight: 500;
+    transition: background 0.3s;
+}
+
+.btn-theme-toggle:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.main-content {
+    max-width: 600px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+/* OPERATION CARD (GLASSMORPHISM) */
+.operation-card {
+    background: var(--glass-bg);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid var(--glass-border);
+    border-radius: 24px;
+    padding: 40px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    animation: slideUp 0.5s ease-out;
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.operation-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.operation-header ion-icon {
+    font-size: 3rem;
+    color: var(--azul-primario);
+    margin-bottom: 10px;
+}
+
+.operation-header h2 {
+    margin: 0;
+    font-size: 1.8rem;
+    color: var(--azul-primario);
+}
+
+.operation-header p {
+    color: #666;
+    margin-top: 5px;
+}
+
+/* FORM STYLES */
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+.form-control {
+    width: 100%;
+    padding: 12px 16px;
+    border-radius: 12px;
+    border: 1px solid #ddd;
+    background: white;
+    font-size: 1rem;
+    transition: all 0.3s;
+    box-sizing: border-box;
+}
+
+.form-control:focus {
+    outline: none;
+    border-color: var(--azul-primario);
+    box-shadow: 0 0 0 4px rgba(40, 55, 161, 0.1);
+}
+
+.btn-primary {
+    width: 100%;
+    padding: 14px;
+    border: none;
+    border-radius: 12px;
+    background: linear-gradient(135deg, var(--azul-primario), var(--azul-secundario));
+    color: white;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+    margin-top: 10px;
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(40, 55, 161, 0.3);
+}
+
+.btn-primary:active {
+    transform: translateY(0);
+}
+
+.btn-deposit {
+    background: linear-gradient(135deg, #2ecc71, #27ae60);
+}
+
+.btn-deposit:hover {
+    box-shadow: 0 4px 15px rgba(46, 204, 113, 0.3);
+}
+
+.btn-back {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    margin-bottom: 20px;
+    color: var(--azul-primario);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.btn-back:hover {
+    text-decoration: underline;
+}
+
+/* RESPONSIVE */
+@media (max-width: 480px) {
+    .operation-card {
+        padding: 25px;
+    }
+}
+
+/* DEPOSIT OPTIONS */
+.deposit-option {
+    border: 2px solid transparent;
+    padding: 18px;
+    border-radius: 16px;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    background: var(--glass-bg);
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 12px;
+    border: 1px solid var(--glass-border);
+}
+
+.deposit-option:hover {
+    background: var(--blanco-card);
+    border-color: var(--azul-primario);
+    transform: translateX(5px);
+}
+
+.deposit-option.active {
+    border-color: var(--azul-primario);
+    background: var(--blanco-card);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    border-width: 2px;
+}
+
+.deposit-option ion-icon {
+    font-size: 1.8rem;
+    color: var(--azul-primario);
+}
+
+.deposit-option div h4 {
+    margin: 0;
+    font-size: 1.1rem;
+    color: var(--texto-oscuro);
+}
+
+.deposit-option div p {
+    margin: 0;
+    font-size: 0.85rem;
+    color: var(--texto-secundario, #666);
+}
+
+[data-theme="dark"] .deposit-option.active {
+    background: var(--azul-primario);
+    border-color: #ffffff;
+}
+
+[data-theme="dark"] .deposit-option.active div h4,
+[data-theme="dark"] .deposit-option.active div p,
+[data-theme="dark"] .deposit-option.active ion-icon {
+    color: #ffffff;
+}

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pago Móvil - Banca 360</title>
+    <link rel="stylesheet" href="./assets/styles/stylesOperations.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+</head>
+<body>
+
+    <header class="navbar-dashboard">
+        <div class="logo-area">
+            <img src="./assets/images/logoDeBanco.png" alt="Logo" width="40">
+            <span>Banca 360</span>
+        </div>
+        <nav class="nav-menu">
+            <button id="btn-tema" class="btn-util btn-theme-toggle">🌓 Modo</button>
+            <a href="dashboard.html" class="nav-item">Dashboard</a>
+            <a href="index.html" class="nav-item logout">Cerrar Sesión</a>
+        </nav>
+    </header>
+
+    <main class="main-content">
+        <a href="dashboard.html" class="btn-back">
+            <ion-icon name="arrow-back-outline"></ion-icon> Volver al Dashboard
+        </a>
+
+        <section class="operation-card">
+            <div class="operation-header">
+                <ion-icon name="phone-portrait-outline"></ion-icon>
+                <h2>Pago Móvil</h2>
+                <p>Pagos rápidos interbancarios</p>
+            </div>
+
+            <form id="form-pagomovil">
+                <div class="form-group">
+                    <label for="banco-destino">Banco Destino</label>
+                    <select id="banco-destino" class="form-control" required>
+                        <option value="">Seleccione un banco</option>
+                        <option value="banesco">Banesco</option>
+                        <option value="mercantil">Mercantil</option>
+                        <option value="provincial">Provincial</option>
+                        <option value="venezuela">Banco de Venezuela</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="telefono">Número de Teléfono</label>
+                    <div style="display: flex; gap: 10px;">
+                        <select class="form-control" style="width: 100px;">
+                            <option value="0414">0414</option>
+                            <option value="0424">0424</option>
+                            <option value="0412">0412</option>
+                            <option value="0416">0416</option>
+                            <option value="0426">0426</option>
+                        </select>
+                        <input type="text" id="telefono" class="form-control" placeholder="1234567" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="cedula">Cédula de Identidad</label>
+                    <div style="display: flex; gap: 10px;">
+                        <select class="form-control" style="width: 80px;">
+                            <option value="V">V</option>
+                            <option value="E">E</option>
+                            <option value="J">J</option>
+                        </select>
+                        <input type="text" id="cedula" class="form-control" placeholder="20123456" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="monto">Monto ($)</label>
+                    <input type="number" id="monto" class="form-control" placeholder="0.00" step="0.01" min="0.01" required>
+                </div>
+
+                <button type="submit" class="btn-primary">Enviar Pago Móvil</button>
+            </form>
+        </section>
+    </main>
+
+    <script src="./assets/scripts/operations.js"></script>
+</body>
+</html>
