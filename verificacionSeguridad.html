@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Verificación de Seguridad</title>
+    <link rel="stylesheet" href="assets/styles/stylesLogin.css">
+    <link rel="stylesheet" href="assets/styles/spinner.css">
+</head>
+<body>
+    <section class="cajaDeLogin">
+        <div class="login-box" style="height: auto; padding: 40px;">
+            <form id="formVerificacion">
+                <h2>Verificación de Seguridad</h2>
+                <p id="preguntaTexto" style="color: white; margin-bottom: 20px; text-align: center;"></p>
+                
+                <div class="input-box">
+                    <input type="text" id="respuestaInput" required>
+                    <label>Tu Respuesta</label>
+                </div>
+                
+                <button type="submit">Verificar e Iniciar</button>
+            </form>
+        </div>
+    </section>
+    <div class="loader" id="spinner" style="display: none;"></div>
+
+    <script>
+        // Recuperamos el usuario para saber qué pregunta mostrar
+        const usuario = JSON.parse(localStorage.getItem('usuarioBanca360'));
+        
+        // Si alguien intenta entrar a esta página sin estar registrado, lo echamos al inicio
+        if(!usuario) {
+            window.location.href = 'inicio.html';
+        } else {
+            // Mostramos la pregunta que el usuario configuró
+            document.getElementById('preguntaTexto').innerText = usuario.preguntaSeguridad;
+        }
+
+        document.getElementById('formVerificacion').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const respuesta = document.getElementById('respuestaInput').value.toLowerCase();
+            
+            if(respuesta === usuario.respuestaSeguridad.toLowerCase()) {
+                document.getElementById('spinner').style.display = 'flex';
+                setTimeout(() => {
+                    window.location.href = 'dashboard.html';
+                }, 2000);
+            } else {
+                alert("Respuesta de seguridad incorrecta.");
+            }
+        });
+    </script>
+</body>
+</html>
