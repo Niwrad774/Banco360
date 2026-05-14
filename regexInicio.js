@@ -4,18 +4,15 @@ const spinner = document.getElementById('spinner');
 loginForm.addEventListener('submit', (e) => {
     e.preventDefault();
     
-    // 1. Capturamos lo que el usuario escribió
+    // 1. Esto agarra lo que el usuario escribio
     const emailIngresado = loginForm.querySelector('input[type="email"]').value;
     const passwordIngresada = loginForm.querySelector('input[type="password"]').value;
 
-    // 2. Buscamos al usuario que guardamos en el localStorage durante el registro
+    // 2. Esto busca al usuario que se guarda en el JSON durante el registro
     const usuarioGuardado = JSON.parse(localStorage.getItem('usuarioBanca360'));
 
-    // --- DEBUG: Esto te permite ver en la consola (F12) si el sistema encuentra al usuario ---
-    console.log("Datos en el sistema:", usuarioGuardado);
-    console.log("Intentando entrar con:", emailIngresado, passwordIngresada);
 
-    // 3. Validaciones de formato (Regex)
+    // 3. Regex
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     const passRegex = /^\d{6}$/; 
 
@@ -28,22 +25,19 @@ loginForm.addEventListener('submit', (e) => {
         return;
     }
 
-    // 4. VERIFICACIÓN REAL
-    // Comparamos lo ingresado contra lo guardado
     if (usuarioGuardado && 
         usuarioGuardado.email === emailIngresado && 
         usuarioGuardado.password === passwordIngresada) {
         
-        // Si todo coincide: Activamos spinner y vamos a la pregunta de seguridad
+        // Se activa el spinner
         spinner.style.display = 'flex';
         setTimeout(() => {
             window.location.href = 'verificacionSeguridad.html';
         }, 2000);
 
     } else {
-        // Si no coincide o el usuario no existe en localStorage
         alert("Error: El usuario no existe o los datos son incorrectos. Asegúrate de haber completado el registro primero.");
-        spinner.style.display = 'none'; // Por si acaso se quedó activado
+        spinner.style.display = 'none'; 
     }
 });
 

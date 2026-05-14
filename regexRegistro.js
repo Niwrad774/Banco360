@@ -28,7 +28,7 @@ document.querySelector('form').addEventListener('submit', function(e) {
     const spinner = document.getElementById('spinner');
     spinner.style.display = 'flex';
 
-    // Redirigimos a las preguntas de seguridad
+    // Esto redirije a las preguntas de seguridad
     setTimeout(() => {
         window.location.href = 'preguntasSeguridad.html';
     }, 2000);

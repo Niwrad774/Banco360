@@ -38,11 +38,11 @@
         const usuario = JSON.parse(localStorage.getItem('usuarioBanca360'));
         if(!usuario) window.location.href = 'inicio.html';
 
-        // Cargar datos en la vista
+        // Cargar datos del usuario en la interfaz de su perfil
         document.getElementById('perfilNombre').innerText = usuario.nombre + ' ' + usuario.apellido;
         document.getElementById('perfilEmail').innerText = usuario.email;
 
-        // Cambio de clave
+        // Codigo para el cambio de clave
         document.getElementById('formPassword').addEventListener('submit', function(e) {
             e.preventDefault();
             const nueva = document.getElementById('nuevaPass').value;

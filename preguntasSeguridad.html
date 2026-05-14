@@ -61,7 +61,7 @@
 
     <script>
         document.getElementById('formPreguntas').addEventListener('submit', function(e) {
-            e.preventDefault(); // Evita que la página se recargue sola
+            e.preventDefault(); 
             
             const selects = document.querySelectorAll('select');
             const inputs = document.querySelectorAll('.input-box input');
@@ -74,15 +74,14 @@
                 usuarioTemp.preguntaSeguridad = selects[0].value;
                 usuarioTemp.respuestaSeguridad = inputs[0].value.toLowerCase();
                 
-                // 3. Guardamos el usuario final en la "base de datos" (localStorage)
+                // 3. Guardamos el usuario final en el JSON
                 localStorage.setItem('usuarioBanca360', JSON.stringify(usuarioTemp));
                 localStorage.removeItem('usuarioTemp'); // Borramos el temporal
 
-                // 4. ACTIVAR EL SPINNER
+                // 4. Esto activa el spinner
                 const spinner = document.getElementById('spinner');
                 spinner.style.display = 'flex';
 
-                // 5. REDIRIGIR AL DASHBOARD después de 2 segundos
                 setTimeout(() => {
                     window.location.href = 'dashboard.html';
                 }, 2000);

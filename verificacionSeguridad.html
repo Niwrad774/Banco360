@@ -25,14 +25,13 @@
     <div class="loader" id="spinner" style="display: none;"></div>
 
     <script>
-        // Recuperamos el usuario para saber qué pregunta mostrar
+        // Recuperamos el usuario para saber que pregunta de seguridad hacer
         const usuario = JSON.parse(localStorage.getItem('usuarioBanca360'));
         
         // Si alguien intenta entrar a esta página sin estar registrado, lo echamos al inicio
         if(!usuario) {
             window.location.href = 'inicio.html';
         } else {
-            // Mostramos la pregunta que el usuario configuró
             document.getElementById('preguntaTexto').innerText = usuario.preguntaSeguridad;
         }
 
