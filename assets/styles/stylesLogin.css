@@ -1,4 +1,4 @@
-*{
+* {
     margin: 5px;
     padding: 0;
     box-sizing: border-box;
@@ -56,8 +56,8 @@ h2 {
     transition: .5s;
 }
 
-.input-box input:focus ~ label,
-.input-box input:valid ~ label {
+.input-box input:focus~label,
+.input-box input:valid~label {
     top: -5px;
 }
 
@@ -133,15 +133,15 @@ button {
 
 .contenedor-vertical {
     display: flex;
-    flex-direction: column; 
-    align-items: center;    
-    gap: 20px;              
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
 }
 
 .botonDeRegreso {
-    width: 150px;           
+    width: 150px;
     height: 40px;
-    background: #2837A1;    
+    background: #2837A1;
     color: white;
     border: 2px solid white;
     border-radius: 40px;
@@ -160,31 +160,6 @@ button {
     justify-content: center;
     align-items: center;
     width: 100%;
-    min-height: 100vh; 
+    min-height: 100vh;
     background-color: #aab2fa;
-    padding: 20px;
 }
-
-@media (max-width: 480px) {
-    .login-box {
-        width: 100%;
-        max-width: 350px;
-        height: auto;
-        padding: 40px 20px;
-    }
-    
-    .input-box {
-        width: 100%;
-    }
-
-    h2 {
-        font-size: 1.5em;
-    }
-
-    .remember-forgot {
-        font-size: 0.8em;
-        flex-direction: column;
-        gap: 10px;
-        align-items: center;
-    }
-}

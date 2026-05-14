@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Banco 360 en linea</title>
+    <link rel="stylesheet" href="assets/styles/stylesRegister.css">
+    <link rel="stylesheet" href="assets/styles/spinner.css">
+    <style>
+        select {
+            width: 100%;
+            background: transparent;
+            border: none;
+            outline: none;
+            color: #fff;
+            font-size: 1em;
+            padding: 10px 0;
+            border-bottom: 2px solid #fff;
+            margin-bottom: 20px;
+        }
+        option { background: #2837A1; color: #fff; }
+    </style>
+</head>
+<body>
+    <section>
+        <div class="wrapper" style="height: 550px;">
+            <div class="form-box">
+                <h2>Seguridad</h2>
+                <p style="color: white; text-align: center; margin-bottom: 20px;">Configura tus preguntas de recuperación</p>
+                
+                <form id="formPreguntas">
+                    <label style="color: white;">Pregunta 1:</label>
+                    <select required>
+                        <option value="">Selecciona una pregunta</option>
+                        <option>¿Nombre de tu primera mascota?</option>
+                        <option>¿Ciudad donde naciste?</option>
+                        <option>¿Nombre de tu escuela primaria?</option>
+                    </select>
+                    <div class="input-box">
+                        <input type="text" required>
+                        <label>Respuesta 1</label>
+                    </div>
+
+                    <label style="color: white;">Pregunta 2:</label>
+                    <select required>
+                        <option value="">Selecciona una pregunta</option>
+                        <option>¿Marca de tu primer carro?</option>
+                        <option>¿Nombre de tu abuelo materno?</option>
+                        <option>¿Tu comida favorita de niño?</option>
+                    </select>
+                    <div class="input-box">
+                        <input type="text" required>
+                        <label>Respuesta 2</label>
+                    </div>
+
+                    <button type="submit" class="botonRegistrarse" style="display:block; width:100%; border:none; cursor:pointer;">Finalizar Registro</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        document.getElementById('formPreguntas').addEventListener('submit', function(e) {
+            e.preventDefault(); 
+            
+            const selects = document.querySelectorAll('select');
+            const inputs = document.querySelectorAll('.input-box input');
+            
+            // 1. Recuperamos los datos que guardamos en el paso anterior (registro.html)
+            const usuarioTemp = JSON.parse(localStorage.getItem('usuarioTemp'));
+            
+            if(usuarioTemp) {
+                // 2. Le agregamos la pregunta y respuesta elegida
+                usuarioTemp.preguntaSeguridad = selects[0].value;
+                usuarioTemp.respuestaSeguridad = inputs[0].value.toLowerCase();
+                
+                // 3. Guardamos el usuario final en el JSON
+                localStorage.setItem('usuarioBanca360', JSON.stringify(usuarioTemp));
+                localStorage.removeItem('usuarioTemp'); // Borramos el temporal
+
+                // 4. Esto activa el spinner
+                const spinner = document.getElementById('spinner');
+                spinner.style.display = 'flex';
+
+                setTimeout(() => {
+                    window.location.href = 'dashboard.html';
+                }, 2000);
+            } else {
+                alert("Error: No se encontraron datos del registro. Por favor, intenta registrarte de nuevo.");
+                window.location.href = 'registro.html';
+            }
+        });
+    </script>
+    <div class="loader" id="spinner" style="display: none;"></div>
+</body>
+</html>

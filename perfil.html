@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Perfil - Banca 360</title>
+    <link rel="stylesheet" href="./assets/styles/stylesOperations.css">
+</head>
+<body>
+    <header class="navbar-dashboard">
+        <div class="logo-area">
+            <span style="color:white; font-size: 1.5rem; font-weight: bold;">Banca 360</span>
+        </div>
+        <nav class="nav-menu">
+            <a href="dashboard.html" class="nav-item">Dashboard</a>
+            <a href="sesionFinalizada.html" class="nav-item logout" style="color: red;">Cerrar Sesión</a>
+        </nav>
+    </header>
+
+    <main class="main-content" style="max-width: 600px; margin: 50px auto; background: white; padding: 30px; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
+        <h2 style="margin-bottom: 20px; color: #1a237e;">Mi Perfil</h2>
+        
+        <div style="margin-bottom: 30px; padding-bottom: 20px; border-bottom: 1px solid #ccc;">
+            <p><strong>Nombre:</strong> <span id="perfilNombre"></span></p>
+            <p><strong>Email:</strong> <span id="perfilEmail"></span></p>
+        </div>
+
+        <h3 style="margin-bottom: 15px; color: #1a237e;">Cambiar Contraseña</h3>
+        <form id="formPassword">
+            <div class="form-group" style="margin-bottom: 15px;">
+                <label>Nueva Contraseña (6 números)</label>
+                <input type="password" id="nuevaPass" class="form-control" required pattern="\\d{6}">
+            </div>
+            <button type="submit" class="btn-primary" style="background: #1a237e; color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer;">Actualizar Contraseña</button>
+        </form>
+    </main>
+
+    <script>
+        const usuario = JSON.parse(localStorage.getItem('usuarioBanca360'));
+        if(!usuario) window.location.href = 'inicio.html';
+
+        // Cargar datos del usuario en la interfaz de su perfil
+        document.getElementById('perfilNombre').innerText = usuario.nombre + ' ' + usuario.apellido;
+        document.getElementById('perfilEmail').innerText = usuario.email;
+
+        // Codigo para el cambio de clave
+        document.getElementById('formPassword').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const nueva = document.getElementById('nuevaPass').value;
+            usuario.password = nueva;
+            localStorage.setItem('usuarioBanca360', JSON.stringify(usuario));
+            alert("Contraseña actualizada con éxito.");
+            document.getElementById('formPassword').reset();
+        });
+    </script>
+</body>
+</html>

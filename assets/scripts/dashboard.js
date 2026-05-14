@@ -4,8 +4,7 @@ const transacciones = [
     { ref: 'REF-1102', fecha: '10 May', desc: 'Depósito Efectivo', monto: '+$ 20.00', tipo: 'entrada' },
     { ref: 'REF-0045', fecha: '09 May', desc: 'Suscripción Netflix', monto: '-$ 10.00', tipo: 'salida' },
     { ref: 'REF-0099', fecha: '08 May', desc: 'Pago Móvil Panadería', monto: '-$ 5.00', tipo: 'salida' },
-    { ref: 'REF-8811', fecha: '07 May', desc: 'Venta Marketplace', monto: '+$ 120.00', tipo: 'entrada' },
-    { ref: 'REF-5522', fecha: '06 May', desc: 'Retiro de Cajero', monto: '-$ 20.00', tipo: 'salida' }
+    { ref: 'REF-8811', fecha: '07 May', desc: 'Venta Marketplace', monto: '+$ 120.00', tipo: 'entrada' }
 ];
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -48,45 +47,38 @@ function renderData() {
     const resumen = document.getElementById('tabla-resumen');
     const historial = document.getElementById('tabla-historial');
 
-    if (resumen) {
-        // Pintamos 6 para que rellene el espacio
-        renderRows(transacciones.slice(0, 6), resumen);
-    }
-    if (historial) {
-        renderRows(transacciones, historial);
-    }
+    if (resumen) renderRows(transacciones.slice(0, 6), resumen);
+    if (historial) renderRows(transacciones, historial);
 }
 
 function renderRows(datos, contenedor) {
+    if (!contenedor) return;
+
     contenedor.innerHTML = datos.map(t => `
         <tr onclick="verComprobante('${t.ref}', '${t.fecha}', '${t.desc}', '${t.monto}')">
             <td>${t.fecha}</td>
             <td><strong>${t.desc}</strong></td>
-            <td style="color: ${t.tipo === 'entrada' ? '#2ecc71' : '#d63031'}">${t.monto}</td>
+            <td style="color: ${t.monto.includes('+') ? 'var(--success-green)' : 'var(--error-red)'}; font-weight: bold; text-align: right;">
+                ${t.monto}
+            </td>
         </tr>
     `).join('');
 }
 
-// 4. Modal Comprobante
-function verComprobante(ref, fecha, concepto, monto) {
-    document.getElementById('comp-ref').innerText = ref;
-    document.getElementById('comp-fecha').innerText = fecha;
-    document.getElementById('comp-concepto').innerText = concepto;
-    document.getElementById('comp-monto').innerText = monto;
-    document.getElementById('modal-comprobante').style.display = 'flex';
-}
-
-function cerrarModal() {
-    document.getElementById('modal-comprobante').style.display = 'none';
-}
-
-// 5. Filtros Historial
+// 4. LÓGICA DE FILTRADO (Reparada)
 function filtrar(tipo, btn) {
-    document.querySelectorAll('.opt-filter').forEach(b => b.classList.remove('active'));
+    const botones = document.querySelectorAll('.opt-filter');
+    botones.forEach(b => b.classList.remove('active'));
     btn.classList.add('active');
 
-    const filtrados = tipo === 'todos' ? transacciones : transacciones.filter(t => t.tipo === tipo);
-    renderRows(filtrados, document.getElementById('tabla-historial'));
+    const tablaHistorial = document.getElementById('tabla-historial');
+    if (!tablaHistorial) return;
+
+    const datosFiltrados = tipo === 'todos'
+        ? transacciones
+        : transacciones.filter(t => t.tipo === tipo);
+
+    renderRows(datosFiltrados, tablaHistorial);
 }
 
 // 6. Modo Oscuro
