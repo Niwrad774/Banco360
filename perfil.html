@@ -1,48 +1,66 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" data-theme="light">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Perfil - Banca 360</title>
     <link rel="stylesheet" href="./assets/styles/stylesOperations.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@500;600;700&display=swap" rel="stylesheet">
+
 </head>
 <body>
     <header class="navbar-dashboard">
-        <div class="logo-area">
-            <span style="color:white; font-size: 1.5rem; font-weight: bold;">Banca 360</span>
+        <div style="display: flex; align-items: center; gap: 15px;">
+            <div class="logo-area">
+                <img src="./assets/images/logoDeBanco.png" alt="Logo" class="nav-logo-small" style="height: 40px; width: auto; object-fit: contain;">
+                <span style="font-family: 'Outfit', sans-serif;">Banca 360</span>
+            </div>
         </div>
         <nav class="nav-menu">
-            <a href="dashboard.html" class="nav-item">Dashboard</a>
-            <a href="sesionFinalizada.html" class="nav-item logout" style="color: red;">Cerrar Sesión</a>
+            <a href="dashboard.html" class="nav-item">Inicio</a>
+            <a href="logout.html" class="nav-item logout" style="color: #ff4757; border: 1px solid #ff4757;">Cerrar Sesión</a>
         </nav>
     </header>
 
-    <main class="main-content" style="max-width: 600px; margin: 50px auto; background: white; padding: 30px; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
-        <h2 style="margin-bottom: 20px; color: #1a237e;">Mi Perfil</h2>
-        
-        <div style="margin-bottom: 30px; padding-bottom: 20px; border-bottom: 1px solid #ccc;">
-            <p><strong>Nombre:</strong> <span id="perfilNombre"></span></p>
-            <p><strong>Email:</strong> <span id="perfilEmail"></span></p>
-        </div>
-
-        <h3 style="margin-bottom: 15px; color: #1a237e;">Cambiar Contraseña</h3>
-        <form id="formPassword">
-            <div class="form-group" style="margin-bottom: 15px;">
-                <label>Nueva Contraseña (6 números)</label>
-                <input type="password" id="nuevaPass" class="form-control" required pattern="\\d{6}">
+    <main class="main-content">
+        <section class="operation-card">
+            <div class="operation-header">
+                <svg viewBox="0 0 24 24" width="80" height="80" fill="none" stroke="var(--azul-primario)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="margin-bottom: 15px;"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                <h2>Mi Perfil</h2>
+                <p>Gestiona tu información personal y seguridad</p>
             </div>
-            <button type="submit" class="btn-primary" style="background: #1a237e; color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer;">Actualizar Contraseña</button>
-        </form>
+            
+            <div style="margin-bottom: 30px; padding: 20px; background: rgba(0,0,0,0.03); border-radius: 15px;">
+                <p style="margin-bottom: 10px;"><strong>Nombre:</strong> <span id="perfilNombre">Cargando...</span></p>
+                <p><strong>Email:</strong> <span id="perfilEmail">Cargando...</span></p>
+            </div>
+
+            <div class="operation-header" style="text-align: left; margin-bottom: 20px;">
+                <h3 style="color: var(--azul-primario);">Seguridad</h3>
+            </div>
+
+            <form id="formPassword">
+                <div class="form-group">
+                    <label>Nueva Contraseña (6 números)</label>
+                    <input type="password" id="nuevaPass" class="form-control" required pattern="\d{6}" placeholder="******">
+                </div>
+                <button type="submit" class="btn-primary">Actualizar Contraseña</button>
+            </form>
+        </section>
     </main>
 
-    <script>
-        const usuario = JSON.parse(localStorage.getItem('usuarioBanca360'));
-        if(!usuario) window.location.href = 'inicio.html';
+    <button id="btn-tema" class="theme-switch-btn">
+        <svg viewBox="0 0 24 24" width="30" height="30" fill="currentColor"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+    </button>
 
-        // Cargar datos del usuario en la interfaz de su perfil
-        document.getElementById('perfilNombre').innerText = usuario.nombre + ' ' + usuario.apellido;
+    <script>
+        const usuario = JSON.parse(localStorage.getItem('usuarioBanca360')) || { nombre: 'Usuario', apellido: 'Prueba', email: 'correo@ejemplo.com' };
+        
+        // Cargar datos
+        document.getElementById('perfilNombre').innerText = usuario.nombre + ' ' + (usuario.apellido || '');
         document.getElementById('perfilEmail').innerText = usuario.email;
 
-        // Codigo para el cambio de clave
+        // Cambio de clave
         document.getElementById('formPassword').addEventListener('submit', function(e) {
             e.preventDefault();
             const nueva = document.getElementById('nuevaPass').value;
@@ -52,5 +70,6 @@
             document.getElementById('formPassword').reset();
         });
     </script>
+    <script src="./assets/scripts/operations.js"></script>
 </body>
 </html>

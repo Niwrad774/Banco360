@@ -1,52 +1,118 @@
 <!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Banco360 en linea</title>
-        <link rel="stylesheet" href="assets/styles/stylesRegister.css">
-    </head>
-
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro - Banco 360</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/styles/stylesRegister.css">
+    <link rel="stylesheet" href="assets/styles/spinner.css">
+    <style>
+        .step-2 { display: none; }
+        .input-box svg { position: absolute; right: 8px; top: 15px; color: white; }
+    </style>
+</head>
 <body>
+    <div class="spinner-overlay" id="spinner">
+        <div class="loader"></div>
+        <p style="margin-top: 15px; color: white; font-family: 'Outfit', sans-serif;">Procesando registro...</p>
+    </div>
+
     <section>
         <div class="wrapper">
-            <div class="form-box register">
-                <h2>Registro</h2>
-                <form action="#">
+            <!-- PASO 1: REGISTRO BÁSICO -->
+            <div class="form-box register" id="step-1">
+                <h2>Registro (Paso 1/2)</h2>
+                <form id="form-step-1">
                     <div class="input-box">
-                        <span class="icon"><ion-icon name="person-outline"></ion-icon></span>
-                        <input type="text" required>
+                        <input type="text" id="reg-nombre" required>
                         <label>Nombre</label>
                     </div>
                     <div class="input-box">
-                        <span class="icon"><ion-icon name="person-outline"></ion-icon></span>
-                        <input type="text" required>
+                        <input type="text" id="reg-apellido" required>
                         <label>Apellido</label>
                     </div>
                     <div class="input-box">
-                        <span class="icon"><ion-icon name="mail-outline"></ion-icon></span>
-                        <input type="email" required>
+                        <input type="email" id="reg-email" required>
                         <label>Email</label>
                     </div>
                     <div class="input-box">
-                        <span class="icon"><ion-icon name="lock-closed-outline"></ion-icon></span>
-                        <input type="password" id="pass" required>
-                            <label>Contraseña (6 números)</label>
+                        <input type="password" id="pass" maxlength="6" pattern="\d{6}" required>
+                        <label>Contraseña (6 números)</label>
                     </div>
                     <div class="input-box">
-                        <input type="password" id="confirmPass" required>
+                        <input type="password" id="confirmPass" maxlength="6" pattern="\d{6}" required>
                         <label>Confirmar Contraseña</label>
-                    
-                        <button type="submit" class="botonRegistrarse">Registrarse</button>
                     </div>
+                    <button type="submit" class="botonRegistrarse">Siguiente</button>
                     <div class="login-register">
                         <p>¿Ya tienes una cuenta? <a href="inicio.html" class="login-link">Inicia sesión</a></p>
                     </div>
                 </form>
             </div>
+
+            <!-- PASO 2: PREGUNTAS DE SEGURIDAD -->
+            <div class="form-box register step-2" id="step-2">
+                <h2>Seguridad (Paso 2/2)</h2>
+                <p style="color: white; font-size: 0.8rem; margin-bottom: 20px; text-align: center;">Configura tus preguntas de recuperación</p>
+                <form id="form-step-2">
+                    <div class="input-box">
+                        <select id="p1" style="width: 100%; background: transparent; border: none; border-bottom: 2px solid white; color: white; padding: 5px 0;" required>
+                            <option value="" style="color: black;">Selecciona una pregunta</option>
+                            <option value="mascota" style="color: black;">¿Nombre de tu primera mascota?</option>
+                            <option value="ciudad" style="color: black;">¿Ciudad donde naciste?</option>
+                        </select>
+                    </div>
+                    <div class="input-box">
+                        <input type="text" id="r1" required>
+                        <label>Respuesta 1</label>
+                    </div>
+                    <div class="input-box">
+                        <select id="p2" style="width: 100%; background: transparent; border: none; border-bottom: 2px solid white; color: white; padding: 5px 0;" required>
+                            <option value="" style="color: black;">Selecciona una pregunta</option>
+                            <option value="comida" style="color: black;">¿Tu comida favorita?</option>
+                            <option value="colegio" style="color: black;">¿Nombre de tu primer colegio?</option>
+                        </select>
+                    </div>
+                    <div class="input-box">
+                        <input type="text" id="r2" required>
+                        <label>Respuesta 2</label>
+                    </div>
+                    <button type="submit" class="botonRegistrarse">Finalizar Registro</button>
+                </form>
+            </div>
         </div>
-        
     </section>
-    <div class="loader" id="spinner"></div>
-    <script src="regexRegistro.js"></script>
+
+    <script>
+        const form1 = document.getElementById('form-step-1');
+        const form2 = document.getElementById('form-step-2');
+        const spinner = document.getElementById('spinner');
+
+        form1.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const p1 = document.getElementById('pass').value;
+            const p2 = document.getElementById('confirmPass').value;
+
+            if (p1 !== p2) {
+                alert("Las contraseñas no coinciden");
+                return;
+            }
+
+            document.getElementById('step-1').style.display = 'none';
+            document.getElementById('step-2').style.display = 'block';
+        });
+
+        form2.addEventListener('submit', (e) => {
+            e.preventDefault();
+            spinner.style.display = 'flex';
+            
+            // Simular guardado
+            setTimeout(() => {
+                alert("¡Registro completado con éxito!");
+                window.location.href = 'inicio.html';
+            }, 1500);
+        });
+    </script>
 </body>
+</html>

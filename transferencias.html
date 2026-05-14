@@ -7,7 +7,7 @@
     <title>Transferencias - Banca 360</title>
     <link rel="stylesheet" href="./assets/styles/stylesOperations.css">
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
-    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+
 </head>
 
 <body>
@@ -16,16 +16,16 @@
         <div style="display: flex; align-items: center; gap: 15px;">
             <div class="menu-container">
                 <button class="btn-hamburger" id="hamburger-btn">
-                    <ion-icon name="menu-outline"></ion-icon>
+                    <svg viewBox="0 0 24 24" width="30" height="30" fill="currentColor"><path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/></svg>
                 </button>
                 <div class="dropdown-menu" id="nav-dropdown">
                     <a href="depositos.html">Depósitos</a>
                     <a href="pagomovil.html">Pago Móvil</a>
                     <a href="transferencias.html">Transferencias</a>
                     <hr class="nav-divider">
-                    <a href="dashboard.html" class="nav-mobile-only">Dashboard</a>
+                    <a href="dashboard.html" class="nav-mobile-only">Inicio</a>
                     <a href="historial.html" class="nav-mobile-only">Movimientos</a>
-                    <a href="index.html" class="nav-mobile-only">Cerrar Sesión</a>
+                    <a href="logout.html" class="nav-mobile-only">Cerrar Sesión</a>
                 </div>
             </div>
             <div class="logo-area">
@@ -34,20 +34,19 @@
             </div>
         </div>
         <nav class="nav-menu">
-            <button id="btn-tema" class="btn-util btn-theme-toggle">🌓 Modo</button>
-            <a href="dashboard.html" class="nav-item">Dashboard</a>
-            <a href="index.html" class="nav-item logout">Cerrar Sesión</a>
+            <a href="dashboard.html" class="nav-item">Inicio</a>
+            <a href="logout.html" class="nav-item logout">Cerrar Sesión</a>
         </nav>
     </header>
 
     <main class="main-content">
         <a href="dashboard.html" class="btn-back">
-            <ion-icon name="arrow-back-outline"></ion-icon> Volver al Dashboard
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle; margin-right: 5px;"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg> Volver al Inicio
         </a>
 
         <section class="operation-card">
             <div class="operation-header">
-                <ion-icon name="swap-horizontal-outline"></ion-icon>
+                <svg viewBox="0 0 24 24" width="64" height="64" fill="none" stroke="var(--azul-primario)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="margin-bottom: 10px;"><polyline points="16 3 21 3 21 8"/><line x1="4" y1="20" x2="21" y2="3"/><polyline points="21 16 21 21 16 21"/><line x1="15" y1="15" x2="21" y2="21"/><line x1="4" y1="4" x2="9" y2="9"/></svg>
                 <h2>Transferencia Bancaria</h2>
                 <p>Envía fondos de forma segura a otras cuentas</p>
             </div>
@@ -93,6 +92,10 @@
             </form>
         </section>
     </main>
+
+    <button id="btn-tema" class="theme-switch-btn">
+        <svg viewBox="0 0 24 24" width="30" height="30" fill="currentColor"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+    </button>
 
     <script src="./assets/scripts/operations.js"></script>
 </body>

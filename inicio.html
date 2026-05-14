@@ -4,6 +4,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Banco360 en linea</title>
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@500;600;700&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="assets/styles/stylesLogin.css">
         <link rel="stylesheet" href="assets/styles/spinner.css">
     </head>
@@ -16,19 +17,21 @@
                 <form>
                     <h2>Iniciar sesión</h2>
                     <div class="input-box">
-                        <span class="icon"><ion-icon name="mail-outline"></ion-icon></span>
+                        <span class="icon">
+                            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                        </span>
                         <input type="email" required>
                         <label>Email</label>
                     </div>
 
                     <div class="input-box">
                         <span class="icon">
-                            <ion-icon name="lock-closed-outline"></ion-icon>
+                            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
                         </span>
                         <input type="password" id="passInput" required>
                         <label>Contraseña</label>
                         <span class="eye-icon" id="togglePass">
-                            <ion-icon name="eye-outline" id="eyeIcon"></ion-icon>
+                            <svg id="eyeIcon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
                         </span>
                     </div>
                     
@@ -54,7 +57,36 @@
             </div>
         </div>
     </section>
-    <script src="regexInicio.js"></script>
-    
-    <div class="loader" id="spinner"></div>
+    <div class="spinner-overlay" id="spinner" style="display: none;">
+        <div class="loader"></div>
+        <p style="margin-top: 15px; color: white; font-family: 'Outfit', sans-serif;">Iniciando sesión...</p>
+    </div>
+
+    <script>
+        document.querySelector('form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const spinner = document.getElementById('spinner');
+            spinner.style.display = 'flex';
+            
+            setTimeout(() => {
+                window.location.href = 'dashboard.html';
+            }, 2000);
+        });
+
+        // Toggle Password Visibility
+        const togglePass = document.getElementById('togglePass');
+        const passInput = document.getElementById('passInput');
+        const eyeIcon = document.getElementById('eyeIcon');
+
+        togglePass.addEventListener('click', () => {
+            const type = passInput.getAttribute('type') === 'password' ? 'text' : 'password';
+            passInput.setAttribute('type', type);
+            
+            if (type === 'text') {
+                eyeIcon.innerHTML = '<path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"/><line x1="1" y1="1" x2="23" y2="23"/>';
+            } else {
+                eyeIcon.innerHTML = '<path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/>';
+            }
+        });
+    </script>
 </body>

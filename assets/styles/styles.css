@@ -1,26 +1,48 @@
-html {
-    scroll-behavior: smooth;
-    scroll-padding-top: 80px; 
-    box-sizing: border-box;
+:root {
+    --primary: #2837A1;
+    --accent: #4b5ccf;
+    --bg-body: #f4f7fe;
+    --text-main: #2d3436;
+    --font-main: 'Inter', sans-serif;
+    --font-heading: 'Outfit', sans-serif;
 }
 
-body{
-    font-family: 'Segoe UI';
-    line-height: 1.6;
+body {
+    font-family: var(--font-main);
+    background-color: var(--bg-body);
+    color: var(--text-main);
     margin: 0;
-    padding: 0;
-    background-color: white;
-    color:white;
+    line-height: 1.6;
 }
 
-.navbar{
+
+.navbar {
     display: flex;
-    text-align: center;
     justify-content: space-between;
-    padding: 15px 30px;
-    background: #2837A1;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.06);
+    align-items: center;
+    padding: 12px 5%;
+    background: var(--primary);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
 }
+
+.logo-area {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: white;
+    text-decoration: none;
+}
+
+.logo-area span {
+    font-family: var(--font-heading);
+    font-weight: 600;
+    font-size: 1.3rem;
+    letter-spacing: -0.01em;
+}
+
 
 .navbar ul{
     list-style-type: none;
@@ -56,9 +78,18 @@ li:hover .Inicio-underline{
    background-color: #FFD700;
 }
 
-.navbar img{
-    border-radius: 40px;
+.navbar img.nav-logo {
+    height: 50px;
+    width: auto;
+    object-fit: contain;
+    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2));
+    transition: transform 0.3s ease;
 }
+
+.navbar img.nav-logo:hover {
+    transform: scale(1.05);
+}
+
 
 
 
@@ -68,35 +99,29 @@ li:hover .Inicio-underline{
 
 /* Seccion Hero */
 .hero {
-    background-color: #aab2fa; 
+    background: linear-gradient(135deg, #aab2fa, #2837A1);
     color: white;
     display: flex;
     align-items: center;
-    padding: 60px 10%;
-    min-height: 400px;
-    /*
-    position: relative;
-    overflow: hidden;
-    */
-}
-
-.hero-text {
-    flex: 1;
-    /*z-index: 2;*/
+    padding: 80px 10%;
+    min-height: 500px;
+    gap: 40px;
 }
 
 .hero-text h1 {
-    font-size: 3rem;
+    font-family: var(--font-heading);
+    font-size: 3.5rem;
     margin-bottom: 20px;
-    color: #2837A1;
+    color: white;
+    line-height: 1.1;
 }
 
 .hero-text p {
-    font-size: 1.2rem;
-    margin-bottom: 10px;
-    padding-left: 5px;
-    color: #2837A1;
+    font-size: 1.3rem;
+    margin-bottom: 30px;
+    color: rgba(255, 255, 255, 0.9);
 }
+
 
 .hero-image {
     flex: 1;
@@ -132,11 +157,17 @@ li:hover .Inicio-underline{
 }
 
 .imagenes-card {
-    background-color: #c3c8f4;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background: white;
+    border-radius: 24px;
+    box-shadow: 0 10px 30px rgba(40, 55, 161, 0.1);
     overflow: hidden;
+    transition: transform 0.3s ease;
 }
+
+.imagenes-card:hover {
+    transform: translateY(-10px);
+}
+
 
 .imagenes-cliente {
     display: flex;
@@ -184,19 +215,23 @@ li:hover .Inicio-underline{
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 140px;
-    height: 50px;
-    background-color: #2837A1;
+    width: 180px;
+    height: 55px;
+    background: linear-gradient(135deg, #2837A1, #4b5ccf);
     color: white;
-    border-radius: 70px;
-    border-color: #aab2fa;
+    border-radius: 15px;
+    border: none;
+    font-weight: 700;
+    text-decoration: none;
+    box-shadow: 0 8px 20px rgba(40, 55, 161, 0.3);
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
 .botonDeIngreso:hover {
-    background-color: #aab2fa;
-    color: #2837A1;
-    border-color: #2837A1;
-    transition: 0.3s ease;
+    transform: translateY(-5px);
+    box-shadow: 0 12px 25px rgba(40, 55, 161, 0.4);
+    background: linear-gradient(135deg, #4b5ccf, #2837A1);
+    color: white;
 }
 
 /* RESPONSIVE */

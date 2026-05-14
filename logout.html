@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sesión Finalizada - Banco 360</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./assets/styles/stylesDashboard.css">
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: var(--bg-body);
+            margin: 0;
+            text-align: center;
+        }
+        .logout-card {
+            background: var(--bg-card);
+            padding: 40px;
+            border-radius: 24px;
+            box-shadow: 0 20px 40px var(--shadow);
+            max-width: 400px;
+            width: 90%;
+        }
+        .icon-check {
+            width: 80px;
+            height: 80px;
+            background: var(--success-green);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0 auto 25px;
+        }
+        h2 { color: var(--text-main); margin-bottom: 15px; }
+        p { color: #666; margin-bottom: 30px; }
+    </style>
+</head>
+<body>
+    <div class="logout-card">
+        <div class="icon-check">
+            <svg viewBox="0 0 24 24" width="40" height="40" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="20 6 9 17 4 12"></polyline>
+            </svg>
+        </div>
+        <h2>Sesión Finalizada</h2>
+        <p>Has salido de tu cuenta de forma segura. ¡Gracias por usar Banca 360!</p>
+        <a href="index.html" class="btn-primary" style="text-decoration: none; display: block; padding: 12px; border-radius: 12px;">Volver al Inicio</a>
+    </div>
+
+    <script>
+        // Persistencia del tema en la página de salida
+        const saved = localStorage.getItem('banco360-tema') || 'light';
+        document.documentElement.setAttribute('data-theme', saved);
+    </script>
+</body>
+</html>

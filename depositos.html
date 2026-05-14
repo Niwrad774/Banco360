@@ -7,9 +7,6 @@
     <title>Depósitos - Banca 360</title>
     <link rel="stylesheet" href="./assets/styles/stylesOperations.css">
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
-    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
-    <style>
-    </style>
 </head>
 
 <body>
@@ -18,16 +15,18 @@
         <div style="display: flex; align-items: center; gap: 15px;">
             <div class="menu-container">
                 <button class="btn-hamburger" id="hamburger-btn">
-                    <ion-icon name="menu-outline"></ion-icon>
+                    <svg viewBox="0 0 24 24" width="30" height="30" fill="currentColor">
+                        <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z" />
+                    </svg>
                 </button>
                 <div class="dropdown-menu" id="nav-dropdown">
                     <a href="depositos.html">Depósitos</a>
                     <a href="pagomovil.html">Pago Móvil</a>
                     <a href="transferencias.html">Transferencias</a>
                     <hr class="nav-divider">
-                    <a href="dashboard.html" class="nav-mobile-only">Dashboard</a>
+                    <a href="dashboard.html" class="nav-mobile-only">Inicio</a>
                     <a href="historial.html" class="nav-mobile-only">Movimientos</a>
-                    <a href="index.html" class="nav-mobile-only">Cerrar Sesión</a>
+                    <a href="logout.html" class="nav-mobile-only">Cerrar Sesión</a>
                 </div>
             </div>
             <div class="logo-area">
@@ -36,22 +35,29 @@
             </div>
         </div>
         <nav class="nav-menu">
-            <button id="btn-tema" class="btn-util btn-theme-toggle">🌓 Modo</button>
-            <a href="dashboard.html" class="nav-item">Dashboard</a>
-            <a href="index.html" class="nav-item logout">Cerrar Sesión</a>
+            <a href="dashboard.html" class="nav-item">Inicio</a>
+            <a href="logout.html" class="nav-item logout">Cerrar Sesión</a>
         </nav>
     </header>
 
     <main class="main-content">
         <a href="dashboard.html" class="btn-back">
-            <ion-icon name="arrow-back-outline"></ion-icon> Volver al Dashboard
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle; margin-right: 5px;">
+                <line x1="19" y1="12" x2="5" y2="12" />
+                <polyline points="12 19 5 12 12 5" />
+            </svg> Volver al Inicio
         </a>
 
         <section class="operation-card">
             <div class="operation-header">
-                <ion-icon name="wallet-outline" style="color: #2ecc71;"></ion-icon>
-                <h2>Realizar Depósito</h2>
-                <p>Ingresa dinero a tu cuenta de forma inmediata</p>
+                <svg viewBox="0 0 24 24" width="64" height="64" fill="none" stroke="var(--azul-primario)"
+                    stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="margin-bottom: 10px;">
+                    <rect x="2" y="5" width="20" height="14" rx="2" />
+                    <line x1="2" y1="10" x2="22" y2="10" />
+                </svg>
+                <h2>Depósito en Efectivo</h2>
+                <p>Abona fondos a tu cuenta de forma inmediata</p>
             </div>
 
             <form id="form-deposito">
@@ -59,7 +65,7 @@
                     <label>Selecciona Método de Depósito</label>
 
                     <div class="deposit-option active" onclick="selectOption(this)">
-                        <ion-icon name="card-outline"></ion-icon>
+                        <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
                         <div>
                             <h4>Tarjeta de Crédito / Débito</h4>
                             <p>Acreditación inmediata</p>
@@ -67,7 +73,7 @@
                     </div>
 
                     <div class="deposit-option" onclick="selectOption(this)">
-                        <ion-icon name="business-outline"></ion-icon>
+                        <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18"/><path d="M3 10h18"/><path d="M5 6l7-3 7 3"/><path d="M4 10v11"/><path d="M20 10v11"/><path d="M8 14v3"/><path d="M12 14v3"/><path d="M16 14v3"/></svg>
                         <div>
                             <h4>Transferencia Interbancaria</h4>
                             <p>Puede tardar hasta 24h</p>
@@ -75,7 +81,7 @@
                     </div>
 
                     <div class="deposit-option" onclick="selectOption(this)">
-                        <ion-icon name="cash-outline"></ion-icon>
+                        <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="6" width="20" height="12" rx="2"/><circle cx="12" cy="12" r="2"/><path d="M6 12h.01M18 12h.01"/></svg>
                         <div>
                             <h4>Depósito en Efectivo (Taquilla)</h4>
                             <p>Genera un código de referencia</p>
@@ -108,6 +114,12 @@
             el.classList.add('active');
         }
     </script>
+    <button id="btn-tema" class="theme-switch-btn">
+        <svg viewBox="0 0 24 24" width="30" height="30" fill="currentColor">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+        </svg>
+    </button>
+
     <script src="./assets/scripts/operations.js"></script>
 </body>
 

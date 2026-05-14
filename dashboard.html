@@ -6,7 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Banca 360 - Dashboard</title>
     <link rel="stylesheet" href="./assets/styles/stylesDashboard.css">
-    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <link rel="stylesheet" href="./assets/styles/spinner.css">
+
+
 </head>
 
 <body>
@@ -15,7 +17,7 @@
         <div class="nav-left">
             <div class="menu-container">
                 <button class="btn-hamburger" id="hamburger-btn">
-                    <ion-icon name="menu-outline"></ion-icon>
+                    <svg viewBox="0 0 24 24" width="30" height="30" fill="currentColor"><path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/></svg>
                 </button>
                 <div class="dropdown-menu" id="nav-dropdown">
                     <a href="depositos.html">Depósitos</a>
@@ -29,7 +31,7 @@
                 </div>
             </div>
             <div class="logo-area">
-                <img src="./assets/images/logoDeBanco.png" alt="Logo" width="35">
+                <img src="./assets/images/logoDeBanco.png" alt="Logo" class="nav-logo-small">
                 <span>Banca 360</span>
             </div>
         </div>
@@ -37,7 +39,7 @@
             <a href="dashboard.html" class="btn-nav active">Inicio</a>
             <a href="historial.html" class="btn-nav">Movimientos</a>
             <a href="perfil.html" class="btn-nav">Perfil</a>
-            <a href="index.html" class="btn-nav">Salir</a>
+            <a href="logout.html" class="btn-nav">Salir</a>
         </nav>
     </header>
 
@@ -49,7 +51,10 @@
                     <div class="balance-row">
                         <h1 id="texto-saldo">$ 12.850,00</h1>
                         <button id="btn-ojo" class="btn-eye-only">
-                            <ion-icon name="eye-outline" id="icono-ojo"></ion-icon>
+                            <svg id="icono-ojo" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/>
+                                <circle cx="12" cy="12" r="3"/>
+                            </svg>
                         </button>
                     </div>
                 </div>
@@ -89,25 +94,10 @@
     </main>
 
     <button id="btn-tema" class="theme-switch-btn">
-        <ion-icon name="moon-outline"></ion-icon>
+        <svg id="svg-tema" viewBox="0 0 24 24" width="30" height="30" fill="currentColor"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
     </button>
 
-    <div id="modal-comprobante" class="modal-overlay">
-        <div class="modal-card">
-            <button class="btn-close-modal" onclick="cerrarModal()">&times;</button>
-            <div style="color: var(--success-green); font-size: 3.5rem; margin-bottom: 10px;">
-                <ion-icon name="checkmark-circle-outline"></ion-icon>
-            </div>
-            <h3 style="margin-bottom: 20px;">Comprobante de Operación</h3>
-            <div style="text-align: left; font-size: 0.95rem; border-top: 1px solid #eee; padding-top: 20px;">
-                <p style="margin-bottom: 10px;"><strong>Referencia:</strong> <span id="comp-ref"></span></p>
-                <p style="margin-bottom: 10px;"><strong>Fecha:</strong> <span id="comp-fecha"></span></p>
-                <p style="margin-bottom: 10px;"><strong>Concepto:</strong> <span id="comp-concepto"></span></p>
-                <p><strong>Monto:</strong> <span id="comp-monto" style="font-weight: 800;"></span></p>
-            </div>
-            <button class="btn-download-pdf">Descargar PDF</button>
-        </div>
-    </div>
+
 
     <script src="./assets/scripts/dashboard.js"></script>
 </body>

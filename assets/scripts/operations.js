@@ -2,9 +2,28 @@ document.addEventListener('DOMContentLoaded', () => {
     // 0. Lógica de Cambio de Tema con Persistencia
     const btnTema = document.getElementById('btn-tema');
 
+    const svgMoon = '<path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>';
+    const svgSun = '<circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>';
+
     const cargarTema = () => {
         const temaGuardado = localStorage.getItem('banco360-tema') || 'light';
         document.documentElement.setAttribute('data-theme', temaGuardado);
+        if (btnTema) {
+            const svg = btnTema.querySelector('svg');
+            if (svg) {
+                svg.innerHTML = temaGuardado === 'light' ? svgMoon : svgSun;
+                if (temaGuardado === 'dark') {
+                    svg.setAttribute('fill', 'none');
+                    svg.setAttribute('stroke', 'currentColor');
+                    svg.setAttribute('stroke-width', '2');
+                    svg.setAttribute('stroke-linecap', 'round');
+                    svg.setAttribute('stroke-linejoin', 'round');
+                } else {
+                    svg.setAttribute('fill', 'currentColor');
+                    svg.removeAttribute('stroke');
+                }
+            }
+        }
     };
 
     cargarTema();
@@ -17,8 +36,23 @@ document.addEventListener('DOMContentLoaded', () => {
 
             doc.setAttribute('data-theme', nuevoTema);
             localStorage.setItem('banco360-tema', nuevoTema);
+            const svg = btnTema.querySelector('svg');
+            if (svg) {
+                svg.innerHTML = nuevoTema === 'light' ? svgMoon : svgSun;
+                if (nuevoTema === 'dark') {
+                    svg.setAttribute('fill', 'none');
+                    svg.setAttribute('stroke', 'currentColor');
+                    svg.setAttribute('stroke-width', '2');
+                    svg.setAttribute('stroke-linecap', 'round');
+                    svg.setAttribute('stroke-linejoin', 'round');
+                } else {
+                    svg.setAttribute('fill', 'currentColor');
+                    svg.removeAttribute('stroke');
+                }
+            }
         });
     }
+
 
     // Lógica de Menú Hamburguesa
     const btnHam = document.getElementById('hamburger-btn');
@@ -93,7 +127,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         card.innerHTML = `
             <div style="color: #2ecc71; font-size: 4rem; margin-bottom: 20px;">
-                <ion-icon name="checkmark-circle-outline"></ion-icon>
+                <svg viewBox="0 0 24 24" width="64" height="64" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
             </div>
             <h3 style="margin-bottom: 15px; color: #333;">Operación Exitosa</h3>
             <p style="color: #666; line-height: 1.5; margin-bottom: 25px;">${message.replace('\n', '<br>')}</p>

@@ -49,29 +49,71 @@ h4 {
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
-.logo-area {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    font-weight: bold;
-    font-size: 1.2rem;
+.logo-area span {
+    font-family: 'Outfit', sans-serif;
+    font-weight: 600;
+    font-size: 1.3rem;
+    letter-spacing: -0.01em;
 }
+
 
 .nav-menu {
     display: flex;
-    gap: 20px;
+    gap: 8px;
     align-items: center;
 }
 
 .nav-item {
-    color: white;
+    padding: 8px 18px;
+    border-radius: 20px;
     text-decoration: none;
-    font-weight: 500;
-    transition: opacity 0.2s;
+    color: white;
+    font-weight: 600;
+    background: rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
 }
 
 .nav-item:hover {
-    opacity: 0.8;
+    background: white;
+    color: var(--azul-primario);
+}
+
+
+/* BOTÓN DE TEMA PREMIUM */
+.theme-switch-btn {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #2837A1, #4b5ccf);
+    color: white;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 8px 25px rgba(40, 55, 161, 0.4);
+    z-index: 9999;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.theme-switch-btn:hover {
+    transform: scale(1.1) rotate(15deg);
+    box-shadow: 0 12px 30px rgba(40, 55, 161, 0.6);
+}
+
+.theme-switch-btn svg {
+    width: 28px;
+    height: 28px;
+    transition: transform 0.5s ease;
+}
+
+[data-theme="dark"] .theme-switch-btn {
+    background: linear-gradient(135deg, #f1c40f, #f39c12);
+    box-shadow: 0 8px 25px rgba(241, 196, 15, 0.3);
+    color: #2c3e50;
 }
 
 .btn-theme-toggle {
@@ -147,11 +189,37 @@ h4 {
 }
 
 
+/* BOTÓN MODO OSCURO FLOTANTE */
+.theme-switch-btn {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: var(--azul-primario);
+    color: white;
+    border: none;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+    font-size: 1.8rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1500;
+    transition: transform 0.2s;
+}
+
+.theme-switch-btn:hover {
+    transform: scale(1.1);
+}
+
 .main-content {
     max-width: 600px;
     margin: 40px auto;
     padding: 0 20px;
 }
+
 
 /* OPERATION CARD (GLASSMORPHISM) */
 .operation-card {
@@ -230,21 +298,22 @@ h4 {
 
 .btn-primary {
     width: 100%;
-    padding: 14px;
+    padding: 16px;
     border: none;
-    border-radius: 12px;
+    border-radius: 16px;
     background: linear-gradient(135deg, var(--azul-primario), var(--azul-secundario));
     color: white;
     font-size: 1.1rem;
-    font-weight: 600;
+    font-weight: 700;
     cursor: pointer;
-    transition: transform 0.2s, box-shadow 0.2s;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     margin-top: 10px;
+    box-shadow: 0 8px 20px rgba(40, 55, 161, 0.2);
 }
 
 .btn-primary:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 4px 15px rgba(40, 55, 161, 0.3);
+    transform: translateY(-5px);
+    box-shadow: 0 12px 25px rgba(40, 55, 161, 0.3);
 }
 
 .btn-primary:active {
