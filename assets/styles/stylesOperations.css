@@ -89,6 +89,64 @@ h4 {
     background: rgba(255, 255, 255, 0.2);
 }
 
+/* HAMBURGER FOR OPERATIONS */
+.btn-hamburger {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.8rem;
+    cursor: pointer;
+    display: none;
+    align-items: center;
+}
+
+.menu-container {
+    position: relative;
+}
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 50px;
+    left: 0;
+    background: var(--blanco-card);
+    border-radius: 15px;
+    width: 220px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    z-index: 1100;
+    overflow: hidden;
+    backdrop-filter: blur(10px);
+}
+
+.dropdown-menu.show {
+    display: block;
+}
+
+.dropdown-menu a {
+    display: block;
+    padding: 15px 20px;
+    color: var(--azul-primario);
+    text-decoration: none;
+    font-weight: 600;
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+}
+
+.dropdown-menu a:hover {
+    background: rgba(0,0,0,0.05);
+}
+
+.nav-mobile-only {
+    display: none !important;
+}
+
+.nav-divider {
+    border: none;
+    border-top: 1px solid rgba(0,0,0,0.05);
+    margin: 5px 0;
+    display: none;
+}
+
+
 .main-content {
     max-width: 600px;
     margin: 40px auto;
@@ -216,11 +274,52 @@ h4 {
 }
 
 /* RESPONSIVE */
-@media (max-width: 480px) {
+@media (max-width: 768px) {
+    .navbar-dashboard {
+        padding: 1rem;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .nav-menu {
+        gap: 10px;
+        font-size: 0.9rem;
+    }
+
+    .main-content {
+        margin: 20px auto;
+    }
+
     .operation-card {
-        padding: 25px;
+        padding: 25px 20px;
     }
 }
+
+@media (max-width: 480px) {
+    .operation-header h2 {
+        font-size: 1.5rem;
+    }
+    
+    .nav-menu {
+        flex-wrap: wrap;
+        justify-content: center;
+        display: none; /* Hide on small screens, use hamburger */
+    }
+
+    .btn-hamburger {
+        display: flex;
+    }
+
+    .nav-mobile-only {
+        display: block !important;
+    }
+
+    .nav-divider {
+        display: block;
+    }
+}
+
+
 
 /* DEPOSIT OPTIONS */
 .deposit-option {

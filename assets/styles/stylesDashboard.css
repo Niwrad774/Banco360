@@ -101,6 +101,18 @@ body {
     color: var(--primary); 
 }
 
+.nav-mobile-only {
+    display: none !important;
+}
+
+.nav-divider {
+    border: none;
+    border-top: 1px solid var(--bg-body);
+    margin: 5px 0;
+    display: none;
+}
+
+
 /* GRID PRINCIPAL */
 .dashboard-grid {
     display: grid; 
@@ -305,3 +317,107 @@ body {
 }
 
 @keyframes slideDown { from { opacity: 0; transform: translateY(-10px); } to { opacity: 1; transform: translateY(0); } }
+
+/* ==========================================
+   RESPONSIVE DESIGN (Media Queries)
+   ========================================== */
+
+/* Tablets y Laptops Pequeñas */
+@media (max-width: 992px) {
+    .dashboard-grid {
+        grid-template-columns: 1fr;
+        max-width: 700px;
+    }
+
+    .left-column {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+    }
+
+    .balance-card, .rates-card {
+        height: 240px;
+    }
+
+    .right-column {
+        height: auto;
+        min-height: 400px;
+    }
+}
+
+/* Tablets Verticales y Móviles Grandes */
+@media (max-width: 768px) {
+    .navbar {
+        padding: 10px 3%;
+    }
+
+    .nav-right {
+        display: none; /* Ocultamos nav derecha en móvil, usamos el menú hamburguesa */
+    }
+
+    .left-column {
+        grid-template-columns: 1fr;
+    }
+
+    .balance-card {
+        height: 180px;
+    }
+
+    .rates-card {
+        height: auto;
+    }
+
+    .dashboard-grid {
+        margin: 15px auto;
+        padding: 0 15px;
+    }
+
+    .modal-card {
+        width: 90%;
+        padding: 30px 20px;
+    }
+
+    .nav-mobile-only {
+        display: block !important;
+    }
+
+    .nav-divider {
+        display: block;
+    }
+}
+
+
+/* Móviles Pequeños */
+@media (max-width: 480px) {
+    .logo-area span {
+        display: none; /* Solo mostramos el icono del logo */
+    }
+
+    .data-table td {
+        padding: 12px;
+        font-size: 0.85rem;
+    }
+
+    .balance-row h1 {
+        font-size: 1.5rem;
+    }
+
+    .theme-switch-btn {
+        width: 50px;
+        height: 50px;
+        bottom: 20px;
+        right: 20px;
+        font-size: 1.5rem;
+    }
+
+    .filter-bar-horizontal {
+        overflow-x: auto;
+        width: 100%;
+        white-space: nowrap;
+    }
+    
+    .opt-filter {
+        padding: 8px 15px;
+        font-size: 0.8rem;
+    }
+}

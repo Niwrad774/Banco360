@@ -162,4 +162,29 @@ button {
     width: 100%;
     min-height: 100vh; 
     background-color: #aab2fa;
+    padding: 20px;
 }
+
+@media (max-width: 480px) {
+    .login-box {
+        width: 100%;
+        max-width: 350px;
+        height: auto;
+        padding: 40px 20px;
+    }
+    
+    .input-box {
+        width: 100%;
+    }
+
+    h2 {
+        font-size: 1.5em;
+    }
+
+    .remember-forgot {
+        font-size: 0.8em;
+        flex-direction: column;
+        gap: 10px;
+        align-items: center;
+    }
+}

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es" data-theme="light">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,12 +9,29 @@
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
 </head>
+
 <body>
 
     <header class="navbar-dashboard">
-        <div class="logo-area">
-            <img src="./assets/images/logoDeBanco.png" alt="Logo" width="40">
-            <span>Banca 360</span>
+        <div style="display: flex; align-items: center; gap: 15px;">
+            <div class="menu-container">
+                <button class="btn-hamburger" id="hamburger-btn">
+                    <ion-icon name="menu-outline"></ion-icon>
+                </button>
+                <div class="dropdown-menu" id="nav-dropdown">
+                    <a href="depositos.html">Depósitos</a>
+                    <a href="pagomovil.html">Pago Móvil</a>
+                    <a href="transferencias.html">Transferencias</a>
+                    <hr class="nav-divider">
+                    <a href="dashboard.html" class="nav-mobile-only">Dashboard</a>
+                    <a href="historial.html" class="nav-mobile-only">Movimientos</a>
+                    <a href="index.html" class="nav-mobile-only">Cerrar Sesión</a>
+                </div>
+            </div>
+            <div class="logo-area">
+                <img src="./assets/images/logoDeBanco.png" alt="Logo" width="40">
+                <span>Banca 360</span>
+            </div>
         </div>
         <nav class="nav-menu">
             <button id="btn-tema" class="btn-util btn-theme-toggle">🌓 Modo</button>
@@ -74,7 +92,8 @@
 
                 <div class="form-group">
                     <label for="monto">Monto ($)</label>
-                    <input type="number" id="monto" class="form-control" placeholder="0.00" step="0.01" min="0.01" required>
+                    <input type="number" id="monto" class="form-control" placeholder="0.00" step="0.01" min="0.01"
+                        required>
                 </div>
 
                 <button type="submit" class="btn-primary">Enviar Pago Móvil</button>
@@ -84,4 +103,5 @@
 
     <script src="./assets/scripts/operations.js"></script>
 </body>
+
 </html>

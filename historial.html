@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es" data-theme="light">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,9 +8,25 @@
     <link rel="stylesheet" href="./assets/styles/stylesDashboard.css">
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
 </head>
+
 <body>
     <header class="navbar">
         <div class="nav-left">
+            <div class="menu-container">
+                <button class="btn-hamburger" id="hamburger-btn">
+                    <ion-icon name="menu-outline"></ion-icon>
+                </button>
+                <div class="dropdown-menu" id="nav-dropdown">
+                    <a href="depositos.html">Depósitos</a>
+                    <a href="pagomovil.html">Pago Móvil</a>
+                    <a href="transferencias.html">Transferencias</a>
+                    <hr class="nav-divider">
+                    <a href="dashboard.html" class="nav-mobile-only">Inicio</a>
+                    <a href="historial.html" class="nav-mobile-only">Movimientos</a>
+                    <a href="perfil.html" class="nav-mobile-only">Perfil</a>
+                    <a href="index.html" class="nav-mobile-only">Salir</a>
+                </div>
+            </div>
             <div class="logo-area">
                 <img src="./assets/images/logoDeBanco.png" alt="Logo" width="35">
                 <span>Banca 360</span>
@@ -18,6 +35,7 @@
         <nav class="nav-right">
             <a href="dashboard.html" class="btn-nav">Inicio</a>
             <a href="historial.html" class="btn-nav active">Movimientos</a>
+            <a href="perfil.html" class="btn-nav">Perfil</a>
             <a href="index.html" class="btn-nav">Salir</a>
         </nav>
     </header>
@@ -32,10 +50,10 @@
                     <button class="opt-filter" onclick="filtrar('salida', this)">Salidas</button>
                 </div>
             </div>
-            
+
             <table class="data-table">
                 <tbody id="tabla-historial">
-                    </tbody>
+                </tbody>
             </table>
         </section>
     </main>
@@ -47,7 +65,8 @@
                 <ion-icon name="checkmark-circle-outline"></ion-icon>
             </div>
             <h3>Comprobante de Operación</h3>
-            <div style="text-align: left; font-size: 0.95rem; border-top: 1px solid #eee; padding-top: 20px; margin-top: 20px;">
+            <div
+                style="text-align: left; font-size: 0.95rem; border-top: 1px solid #eee; padding-top: 20px; margin-top: 20px;">
                 <p style="margin-bottom: 10px;"><strong>Referencia:</strong> <span id="comp-ref"></span></p>
                 <p style="margin-bottom: 10px;"><strong>Fecha:</strong> <span id="comp-fecha"></span></p>
                 <p style="margin-bottom: 10px;"><strong>Concepto:</strong> <span id="comp-concepto"></span></p>
@@ -59,4 +78,5 @@
 
     <script src="./assets/scripts/dashboard.js"></script>
 </body>
+
 </html>

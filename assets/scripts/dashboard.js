@@ -19,8 +19,8 @@ document.addEventListener('DOMContentLoaded', () => {
 function setupHamburger() {
     const btn = document.getElementById('hamburger-btn');
     const menu = document.getElementById('nav-dropdown');
-    if(!btn) return;
-    
+    if (!btn) return;
+
     btn.addEventListener('click', (e) => {
         e.stopPropagation();
         menu.classList.toggle('show');
@@ -33,7 +33,7 @@ function setupHamburger() {
 function setupEye() {
     const btn = document.getElementById('btn-ojo');
     const saldo = document.getElementById('texto-saldo');
-    if(!btn) return;
+    if (!btn) return;
 
     let visible = true;
     btn.addEventListener('click', () => {
@@ -92,7 +92,7 @@ function filtrar(tipo, btn) {
 // 6. Modo Oscuro
 function initTheme() {
     const btn = document.getElementById('btn-tema');
-    if(!btn) return;
+    if (!btn) return;
 
     btn.addEventListener('click', () => {
         const theme = document.documentElement.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
