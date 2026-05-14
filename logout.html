@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -16,6 +17,7 @@
             margin: 0;
             text-align: center;
         }
+
         .logout-card {
             background: var(--bg-card);
             padding: 40px;
@@ -24,6 +26,7 @@
             max-width: 400px;
             width: 90%;
         }
+
         .icon-check {
             width: 80px;
             height: 80px;
@@ -35,20 +38,31 @@
             align-items: center;
             margin: 0 auto 25px;
         }
-        h2 { color: var(--text-main); margin-bottom: 15px; }
-        p { color: #666; margin-bottom: 30px; }
+
+        h2 {
+            color: var(--text-main);
+            margin-bottom: 15px;
+        }
+
+        p {
+            color: #666;
+            margin-bottom: 30px;
+        }
     </style>
 </head>
+
 <body>
     <div class="logout-card">
         <div class="icon-check">
-            <svg viewBox="0 0 24 24" width="40" height="40" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+            <svg viewBox="0 0 24 24" width="40" height="40" fill="none" stroke="currentColor" stroke-width="3"
+                stroke-linecap="round" stroke-linejoin="round">
                 <polyline points="20 6 9 17 4 12"></polyline>
             </svg>
         </div>
         <h2>Sesión Finalizada</h2>
         <p>Has salido de tu cuenta de forma segura. ¡Gracias por usar Banca 360!</p>
-        <a href="index.html" class="btn-primary" style="text-decoration: none; display: block; padding: 12px; border-radius: 12px;">Volver al Inicio</a>
+        <a href="index.html" class="btn-primary"
+            style="text-decoration: none; display: block; padding: 12px; border-radius: 12px;">Volver al Inicio</a>
     </div>
 
     <script>
@@ -57,4 +71,5 @@
         document.documentElement.setAttribute('data-theme', saved);
     </script>
 </body>
+
 </html>
