@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es" data-theme="light">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,6 +8,7 @@
     <link rel="stylesheet" href="./assets/styles/stylesDashboard.css">
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
 </head>
+
 <body>
 
     <header class="navbar">
@@ -19,6 +21,11 @@
                     <a href="depositos.html">Depósitos</a>
                     <a href="pagomovil.html">Pago Móvil</a>
                     <a href="transferencias.html">Transferencias</a>
+                    <hr class="nav-divider">
+                    <a href="dashboard.html" class="nav-mobile-only">Inicio</a>
+                    <a href="historial.html" class="nav-mobile-only">Movimientos</a>
+                    <a href="perfil.html" class="nav-mobile-only">Perfil</a>
+                    <a href="index.html" class="nav-mobile-only">Salir</a>
                 </div>
             </div>
             <div class="logo-area">
@@ -59,7 +66,8 @@
                 <div class="rate-item"><span>₺ TRY</span> <strong>11,20487321</strong></div>
                 <div class="rate-item"><span>₽ RUB</span> <strong>6,89253828</strong></div>
                 <div class="rate-item"><span>$ USD</span> <strong>508,60040000</strong></div>
-                <p style="font-size: 0.7rem; color: gray; margin-top: 15px; text-align: center;">Fecha Valor: Miércoles, 13 Mayo 2026</p>
+                <p style="font-size: 0.7rem; color: gray; margin-top: 15px; text-align: center;">Fecha Valor: Miércoles,
+                    13 Mayo 2026</p>
             </section>
         </aside>
 
@@ -67,12 +75,13 @@
             <div class="card trans-card">
                 <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
                     <h2>Últimos Movimientos</h2>
-                    <a href="historial.html" style="text-decoration: none; color: var(--primary); font-weight: bold;">Ver todo</a>
+                    <a href="historial.html"
+                        style="text-decoration: none; color: var(--primary); font-weight: bold;">Ver todo</a>
                 </div>
                 <div class="scroll-wrapper">
                     <table class="data-table">
                         <tbody id="tabla-resumen">
-                            </tbody>
+                        </tbody>
                     </table>
                 </div>
             </div>
@@ -102,4 +111,5 @@
 
     <script src="./assets/scripts/dashboard.js"></script>
 </body>
+
 </html>

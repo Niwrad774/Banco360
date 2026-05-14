@@ -14,11 +14,24 @@ document.addEventListener('DOMContentLoaded', () => {
             const doc = document.documentElement;
             const temaActual = doc.getAttribute('data-theme');
             const nuevoTema = temaActual === 'light' ? 'dark' : 'light';
-            
+
             doc.setAttribute('data-theme', nuevoTema);
             localStorage.setItem('banco360-tema', nuevoTema);
         });
     }
+
+    // Lógica de Menú Hamburguesa
+    const btnHam = document.getElementById('hamburger-btn');
+    const menuNav = document.getElementById('nav-dropdown');
+
+    if (btnHam && menuNav) {
+        btnHam.addEventListener('click', (e) => {
+            e.stopPropagation();
+            menuNav.classList.toggle('show');
+        });
+        document.addEventListener('click', () => menuNav.classList.remove('show'));
+    }
+
 
     const formTransferencia = document.getElementById('form-transferencia');
     const formPagoMovil = document.getElementById('form-pagomovil');
@@ -30,7 +43,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const monto = document.getElementById('monto').value;
             const banco = document.getElementById('banco-destino').value;
             const cuenta = document.getElementById('numero-cuenta').value;
-            
+
             showSuccess(`¡Transferencia exitosa!\nSe han enviado $${monto} al banco ${banco}, cuenta ${cuenta}.`);
         });
     }
@@ -41,7 +54,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const monto = document.getElementById('monto').value;
             const banco = document.getElementById('banco-destino').value;
             const tlf = document.getElementById('telefono').value;
-            
+
             showSuccess(`¡Pago Móvil enviado!\nSe han enviado $${monto} al banco ${banco}, teléfono ${tlf}.`);
         });
     }
@@ -50,7 +63,7 @@ document.addEventListener('DOMContentLoaded', () => {
         formDeposito.addEventListener('submit', (e) => {
             e.preventDefault();
             const monto = document.getElementById('monto').value;
-            
+
             showSuccess(`¡Depósito exitoso!\nSe han abonado $${monto} a su cuenta.`);
         });
     }

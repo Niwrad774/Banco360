@@ -199,6 +199,49 @@ li:hover .Inicio-underline{
     transition: 0.3s ease;
 }
 
+/* RESPONSIVE */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        gap: 15px;
+        padding: 15px;
+    }
+
+    .navbar ul {
+        padding: 0;
+    }
+
+    .navbar li {
+        margin: 0 10px;
+    }
+
+    .hero {
+        flex-direction: column;
+        text-align: center;
+        padding: 40px 5%;
+    }
+
+    .hero-text h1 {
+        font-size: 2rem;
+    }
+
+    .hero-image {
+        justify-content: center;
+        margin-top: 30px;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-text h1 {
+        font-size: 1.8rem;
+    }
+
+    .imagenes-grid {
+        gap: 20px;
+    }
+}
+
+
 
 
 
